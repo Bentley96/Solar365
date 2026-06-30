@@ -29,29 +29,29 @@ const octopusFeatures = [
 
 export default function OctopusSection() {
   return (
-    <section className="bg-white section-padding border-b border-gray-100">
+    <section className="section-padding bg-gradient-to-br from-[#3a0f73] via-[#2a0a55] to-[#1a0838]">
       <div className="container-xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-[#f3469b]/10 border border-[#f3469b]/20 text-[#c4307a] text-sm font-semibold px-4 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full mb-6">
               <Zap className="w-4 h-4" />
               Official Partnership
             </div>
 
-            <h2 className="section-heading mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
               Yorkshire's Octopus Energy<br />
-              <span className="text-solar-500">Trusted Installer</span>
+              <span className="text-[#ff8fcf]">Trusted Installer</span>
             </h2>
 
-            <p className="text-gray-600 mb-4 text-base leading-relaxed">
+            <p className="text-purple-100/80 mb-4 text-base leading-relaxed">
               Being an Octopus Energy Trusted Installer isn't something you can just sign up for.
               We've been thoroughly vetted, inspected, and approved by one of the UK's most
               trusted energy suppliers — so when you choose Solar 365, you're choosing a team
               that's already passed the highest standards of quality and professionalism.
             </p>
 
-            <p className="text-gray-600 mb-6 text-base leading-relaxed">
+            <p className="text-purple-100/80 mb-6 text-base leading-relaxed">
               As an Octopus Trusted Installer, we can also help you switch your energy supplier
               and access smart tariffs that are designed to work hand-in-hand with your solar
               panels and battery storage — so you save even more on your bills.
@@ -59,8 +59,8 @@ export default function OctopusSection() {
 
             <ul className="space-y-3 mb-8">
               {benefits.map((b) => (
-                <li key={b} className="flex items-start gap-3 text-gray-700 text-sm">
-                  <CheckCircle className="w-4 h-4 text-solar-500 mt-0.5 flex-shrink-0" />
+                <li key={b} className="flex items-start gap-3 text-white/90 text-sm">
+                  <CheckCircle className="w-4 h-4 text-[#ff8fcf] mt-0.5 flex-shrink-0" />
                   {b}
                 </li>
               ))}
@@ -76,7 +76,10 @@ export default function OctopusSection() {
                 Switch to Octopus + Save £50
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <a href="#quote" className="btn-outline-navy">
+              <a
+                href="#quote"
+                className="inline-flex items-center gap-2 border-2 border-white/40 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-white/10 transition-colors"
+              >
                 Get a Solar Quote
               </a>
             </div>
@@ -85,7 +88,7 @@ export default function OctopusSection() {
           {/* Right — visual card */}
           <div className="space-y-4">
             {/* Octopus badge */}
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="mb-6">
                 <img
                   src="/images/Rectangle-1024x356.png"
@@ -110,9 +113,9 @@ export default function OctopusSection() {
             </div>
 
             {/* CTA card */}
-            <div className="bg-navy-900 rounded-2xl p-6 text-center">
+            <div className="bg-[#15062b] border border-white/15 rounded-2xl p-6 text-center">
               <p className="text-white font-bold text-lg mb-2">Ready to switch and save?</p>
-              <p className="text-navy-300 text-sm mb-5">
+              <p className="text-purple-100/80 text-sm mb-5">
                 Switch your energy to Octopus through Solar 365 and earn £50 off your first bill.
                 The perfect partner for your new solar system.
               </p>

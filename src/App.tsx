@@ -33,9 +33,9 @@ function HomePage() {
       <Header />
       <main>
         <Hero />
+        <OctopusSection />
         <VideoSection />
         <AccreditationsStrip />
-        <OctopusSection />
         <WhyChooseUs />
         <ResidentialFeature />
         <ServicesGrid />
