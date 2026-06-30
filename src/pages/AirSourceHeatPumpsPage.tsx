@@ -110,21 +110,33 @@ export default function AirSourceHeatPumpsPage() {
 
         {/* How ASHPs Work */}
         <section className="section-padding bg-gray-50">
-          <div className="container-xl max-w-3xl mx-auto">
-            <p className="section-label mb-3">The Technology</p>
-            <h2 className="section-heading mb-6">How Air Source Heat Pumps Work</h2>
-            <div className="space-y-4 text-gray-700 text-lg">
-              <p>
-                ASHPs extract heat from outdoor air even at temperatures as low as -15°C. A fan draws
-                air over a heat exchanger containing refrigerant, which absorbs heat and evaporates
-                into gas. The gas is compressed to raise its temperature, then passes through another
-                heat exchanger to transfer heat to your home's heating system.
-              </p>
-              <p>
-                The result is a highly efficient system that can deliver 2.5–4 units of heat for
-                every unit of electricity consumed — dramatically cheaper than traditional gas or
-                electric heating.
-              </p>
+          <div className="container-xl">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p className="section-label mb-3">The Technology</p>
+                <h2 className="section-heading mb-6">How Air Source Heat Pumps Work</h2>
+                <div className="space-y-4 text-gray-700 text-lg">
+                  <p>
+                    ASHPs extract heat from outdoor air even at temperatures as low as -15°C. A fan draws
+                    air over a heat exchanger containing refrigerant, which absorbs heat and evaporates
+                    into gas. The gas is compressed to raise its temperature, then passes through another
+                    heat exchanger to transfer heat to your home's heating system.
+                  </p>
+                  <p>
+                    The result is a highly efficient system that can deliver 2.5–4 units of heat for
+                    every unit of electricity consumed — dramatically cheaper than traditional gas or
+                    electric heating.
+                  </p>
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+                <img
+                  src="/images/air-source-7.webp"
+                  alt="Air source heat pump unit installed outside a home"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </section>

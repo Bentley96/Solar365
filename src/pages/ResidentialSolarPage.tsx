@@ -40,19 +40,29 @@ export default function ResidentialSolarPage() {
         {/* Sustainable Solar Energy For Your Home */}
         <section className="section-padding bg-white">
           <div className="container-xl">
-            <div className="max-w-3xl mx-auto">
-              <p className="section-label mb-3">Sustainable Energy</p>
-              <h2 className="section-heading mb-6">Sustainable Solar Energy For Your Home</h2>
-              <div className="prose prose-lg text-gray-700 space-y-4">
-                <p>
-                  Solar PV panels lower your energy bills by up to 70% and reduce your carbon footprint.
-                  All products come with extensive warranty coverage, giving you complete peace of mind.
-                </p>
-                <p>
-                  Solar battery systems ensure electricity is supplied whatever the weather — storing
-                  energy generated during the day for use at night or on cloudy days. Our services are
-                  available throughout Yorkshire and beyond.
-                </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p className="section-label mb-3">Sustainable Energy</p>
+                <h2 className="section-heading mb-6">Sustainable Solar Energy For Your Home</h2>
+                <div className="space-y-4 text-gray-700 text-lg">
+                  <p>
+                    Solar PV panels lower your energy bills by up to 70% and reduce your carbon footprint.
+                    All products come with extensive warranty coverage, giving you complete peace of mind.
+                  </p>
+                  <p>
+                    Solar battery systems ensure electricity is supplied whatever the weather — storing
+                    energy generated during the day for use at night or on cloudy days. Our services are
+                    available throughout Yorkshire and beyond.
+                  </p>
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+                <img
+                  src="/images/residential-solar-5.webp"
+                  alt="Residential solar panel installation in Yorkshire"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -95,15 +105,27 @@ export default function ResidentialSolarPage() {
 
         {/* How Solar Panels Work */}
         <section className="section-padding bg-white">
-          <div className="container-xl max-w-3xl mx-auto">
-            <p className="section-label mb-3">The Technology</p>
-            <h2 className="section-heading mb-6">How Do Solar Panels Work?</h2>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Solar panels capture the sun's energy and convert it into electricity through a process
-              called photovoltaics (PV). By installing solar panels, you can generate your own
-              renewable electricity to use in your home — reducing or eliminating your reliance on
-              the national grid.
-            </p>
+          <div className="container-xl">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] order-last lg:order-first">
+                <img
+                  src="/images/residential-solar-7.webp"
+                  alt="Solar panels generating renewable electricity"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <p className="section-label mb-3">The Technology</p>
+                <h2 className="section-heading mb-6">How Do Solar Panels Work?</h2>
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  Solar panels capture the sun's energy and convert it into electricity through a process
+                  called photovoltaics (PV). By installing solar panels, you can generate your own
+                  renewable electricity to use in your home — reducing or eliminating your reliance on
+                  the national grid.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

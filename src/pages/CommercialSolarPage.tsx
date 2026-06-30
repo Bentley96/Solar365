@@ -57,21 +57,31 @@ export default function CommercialSolarPage() {
         {/* Sustainable Solar For Business */}
         <section className="section-padding bg-white">
           <div className="container-xl">
-            <div className="max-w-3xl mx-auto">
-              <p className="section-label mb-3">Why Go Solar?</p>
-              <h2 className="section-heading mb-6">Sustainable Solar Energy For Your Business</h2>
-              <div className="space-y-4 text-gray-700 text-lg">
-                <p>
-                  Solar PV is a fantastic way of cutting electricity costs for your business, and can
-                  even provide 100% bill reduction depending on your energy usage and system size.
-                  Each proposal is tailored around bespoke requirements to maximise the benefits for
-                  your specific situation.
-                </p>
-                <p>
-                  Moving to renewable energy demonstrates sustainability commitments to customers and
-                  adds a beneficial green focus to your marketing — an increasingly important
-                  differentiator in today's market.
-                </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p className="section-label mb-3">Why Go Solar?</p>
+                <h2 className="section-heading mb-6">Sustainable Solar Energy For Your Business</h2>
+                <div className="space-y-4 text-gray-700 text-lg">
+                  <p>
+                    Solar PV is a fantastic way of cutting electricity costs for your business, and can
+                    even provide 100% bill reduction depending on your energy usage and system size.
+                    Each proposal is tailored around bespoke requirements to maximise the benefits for
+                    your specific situation.
+                  </p>
+                  <p>
+                    Moving to renewable energy demonstrates sustainability commitments to customers and
+                    adds a beneficial green focus to your marketing — an increasingly important
+                    differentiator in today's market.
+                  </p>
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+                <img
+                  src="/images/commercial-solar-5.webp"
+                  alt="Commercial solar panel installation"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>

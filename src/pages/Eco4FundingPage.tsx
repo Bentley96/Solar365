@@ -41,25 +41,35 @@ export default function Eco4FundingPage() {
         {/* What is ECO4 */}
         <section className="section-padding bg-white">
           <div className="container-xl">
-            <div className="max-w-3xl mx-auto">
-              <p className="section-label mb-3">About ECO4</p>
-              <h2 className="section-heading mb-6">We Can Help With Government Energy Grants!</h2>
-              <div className="space-y-4 text-gray-700 text-lg">
-                <p>
-                  ECO4 (Energy Company Obligation phase 4) is a UK government-backed scheme designed
-                  to improve energy efficiency in homes, reduce carbon emissions, and combat fuel
-                  poverty.
-                </p>
-                <p>
-                  The scheme funds upgrades such as insulation (cavity wall, loft, internal wall),
-                  heating systems (boilers, air source heat pumps, first-time central heating),
-                  solar panels, and other measures to boost your property's EPC rating.
-                </p>
-                <p>
-                  It obligates larger energy suppliers to deliver improvements, primarily targeting
-                  low-income households, those receiving certain benefits, and properties with poor
-                  energy efficiency ratings (EPC D–G).
-                </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p className="section-label mb-3">About ECO4</p>
+                <h2 className="section-heading mb-6">We Can Help With Government Energy Grants!</h2>
+                <div className="space-y-4 text-gray-700 text-lg">
+                  <p>
+                    ECO4 (Energy Company Obligation phase 4) is a UK government-backed scheme designed
+                    to improve energy efficiency in homes, reduce carbon emissions, and combat fuel
+                    poverty.
+                  </p>
+                  <p>
+                    The scheme funds upgrades such as insulation (cavity wall, loft, internal wall),
+                    heating systems (boilers, air source heat pumps, first-time central heating),
+                    solar panels, and other measures to boost your property's EPC rating.
+                  </p>
+                  <p>
+                    It obligates larger energy suppliers to deliver improvements, primarily targeting
+                    low-income households, those receiving certain benefits, and properties with poor
+                    energy efficiency ratings (EPC D–G).
+                  </p>
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+                <img
+                  src="/images/eco4-6.jpg"
+                  alt="Energy efficient home improvements funded by ECO4"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
