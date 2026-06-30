@@ -20,7 +20,7 @@ export default function VideoSection() {
           {!playing ? (
             <div className="relative aspect-video cursor-pointer group" onClick={() => setPlaying(true)}>
               <img
-                src="/images/homepage/commercial-solar-panel-cleaning.jpg"
+                src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop"
                 alt="Solar 365 installation walkthrough"
                 loading="lazy"
                 className="w-full h-full object-cover"

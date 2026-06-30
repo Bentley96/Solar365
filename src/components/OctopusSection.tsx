@@ -86,14 +86,12 @@ export default function OctopusSection() {
           <div className="space-y-4">
             {/* Octopus badge */}
             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-[#f3469b] rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-black text-2xl">O</span>
-                </div>
-                <div>
-                  <p className="text-navy-900 font-bold text-lg">Octopus Energy</p>
-                  <p className="text-gray-500 text-sm">Official Trusted Installer Partner</p>
-                </div>
+              <div className="mb-6">
+                <img
+                  src="/images/Rectangle-1024x356.png"
+                  alt="Octopus Energy Trusted Installer Partner"
+                  className="w-full h-auto rounded-xl object-contain"
+                />
               </div>
 
               <div className="space-y-3">

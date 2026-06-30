@@ -7,14 +7,12 @@ export default function FinanceBanner() {
         <div className="grid md:grid-cols-2 gap-8 items-stretch">
           {/* Octopus */}
           <div className="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm flex flex-col h-full">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-[#f3469b] rounded-xl flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-black text-xl">O</span>
-              </div>
-              <div>
-                <p className="font-bold text-navy-900">Octopus Energy Partner</p>
-                <p className="text-xs text-gray-500">Official Trusted Installer Affiliate</p>
-              </div>
+            <div className="mb-4">
+              <img
+                src="/images/Rectangle-1024x356.png"
+                alt="Octopus Energy Trusted Installer Partner"
+                className="w-full h-auto rounded-xl object-contain"
+              />
             </div>
             <p className="text-gray-600 text-sm leading-relaxed mb-3">
               Switch to Octopus Energy through Solar 365 and earn{' '}
