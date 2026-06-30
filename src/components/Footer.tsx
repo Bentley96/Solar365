@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <img
-              src="https://solar-365.co.uk/wp-content/uploads/2022/11/Solar-365-Logo-1024x247.png"
+              src="/images/Solar365Inverted.png"
               alt="Solar 365"
               className="h-8 w-auto mb-4"
             />
