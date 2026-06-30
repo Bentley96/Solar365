@@ -5,7 +5,7 @@ const cases = [
     title: 'The Curtain Factory Outlet',
     type: 'Commercial Solar',
     size: '15 kW',
-    image: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=700&h=480&fit=crop',
+    image: '/images/homepage/PHOTO-2023-10-17-14-52-27.jpg.webp',
     excerpt:
       'A family-run curtain and blinds manufacturer wanted to lower its energy bills and reduce reliance on the grid while enhancing its green credentials. With machinery and lighting running throughout the day, solar PV was an ideal fit. We installed a 15 kW solar PV system on their factory roof using premium JA Solar panels and a smart inverter system.',
     href: 'https://solar-365.co.uk/case_studies/curtain-factory-outlet/',
@@ -14,7 +14,7 @@ const cases = [
     title: 'JA Autos',
     type: 'Commercial Solar',
     size: '25 kW',
-    image: 'https://images.pexels.com/photos/97079/pexels-photo-97079.jpeg?auto=compress&cs=tinysrgb&w=700&h=480&fit=crop',
+    image: '/images/homepage/PHOTO-2023-09-12-10-35-28.jpg',
     excerpt:
       'This busy MOT garage faced rising overheads from diagnostic tools, lifts, and lighting. With a goal of making the business greener and more cost-efficient, they turned to us for a tailored solar solution. We delivered a 25 kW roof-mounted PV system across the workshop and office building, designed to meet peak daytime energy demands.',
     href: 'https://solar-365.co.uk/case_studies/ja-autos/',
@@ -23,7 +23,7 @@ const cases = [
     title: 'TA — Farm Installation',
     type: 'Agricultural Solar',
     size: '30 kW',
-    image: 'https://images.pexels.com/photos/9875468/pexels-photo-9875468.jpeg?auto=compress&cs=tinysrgb&w=700&h=480&fit=crop',
+    image: '/images/homepage/commercial-solar-installers-yorkshire.jpg',
     excerpt:
       'After completing a detailed site assessment, we installed a 30 kW PV system on the farm\'s storage barn. The system features high-efficiency panels paired with Power Optimisers to maximise yield and system visibility. The farm now benefits from significantly lower energy bills and a reduced carbon footprint.',
     href: 'https://solar-365.co.uk/case-studies/',

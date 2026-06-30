@@ -54,7 +54,7 @@ export default function Hero() {
         className="relative"
         style={{
           paddingTop: '112px',
-          backgroundImage: 'url(https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1920&h=900&fit=crop)',
+          backgroundImage: 'url(/images/homepage/commercial-solar-panels.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center 40%',
         }}

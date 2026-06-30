@@ -1,32 +1,39 @@
 const accreditations = [
-  { name: 'MCS Accredited', abbr: 'MCS' },
-  { name: 'HIES Registered', abbr: 'HIES' },
-  { name: 'TrustMark', abbr: 'TM' },
-  { name: 'NAPIT', abbr: 'NAPIT' },
-  { name: 'Green Deal', abbr: 'GD' },
-  { name: 'Citation', abbr: 'CIT' },
-  { name: 'BUS Scheme', abbr: 'BUS' },
-  { name: 'Cosy Homes', abbr: 'CH' },
+  { name: 'MCS Accredited', img: '/images/homepage/MCS-certified.png' },
+  { name: 'HIES Registered', img: '/images/homepage/hies-logo.png.webp' },
+  { name: 'TrustMark', img: '/images/homepage/trustmark.png.webp' },
+  { name: 'NAPIT', img: '/images/homepage/napit-logo.png' },
+  { name: 'Green Deal', img: '/images/homepage/green-deal-logo.png.webp' },
+  { name: 'Citation', img: '/images/homepage/ciatation-logo.png.webp' },
+  { name: 'BUS Scheme', img: '/images/homepage/bus-logo.png' },
 ];
 
 const brands = [
-  'JA Solar', 'Solax', 'Sunsynk', 'Tesla', 'GivEnergy',
-  'Jinko', 'Longi', 'SolarEdge', 'EcoFlow', 'DMEGC', 'Fox ESS',
+  { name: 'SolarEdge', img: '/images/homepage/solar-edge-1.png' },
+  { name: 'Solax Power', img: '/images/homepage/solax-power-1.png.webp' },
+  { name: 'Sunsynk', img: '/images/homepage/sun-synk-logo.png' },
+  { name: 'GivEnergy', img: '/images/homepage/giv-energy.png' },
+  { name: 'Jinko Solar', img: '/images/homepage/jinko-solar-1.png.webp' },
+  { name: 'LonGi Solar', img: '/images/homepage/longi-solar-.png' },
+  { name: 'EcoFlow', img: '/images/homepage/ecoflow-logo.png' },
+  { name: 'DMEGC Solar', img: '/images/homepage/dmegc-solar.png.webp' },
+  { name: 'Fox ESS', img: '/images/homepage/fox-ess-logo.png.webp' },
+  { name: 'Solis', img: '/images/homepage/solais-logo.png.webp' },
 ];
 
-function AccredBadge({ name, abbr }: { name: string; abbr: string }) {
+function AccredBadge({ name, img }: { name: string; img: string }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-1.5 px-6 py-4 rounded-xl bg-white border border-gray-100 shadow-sm min-w-[90px]">
-      <span className="text-xs font-bold text-navy-600 tracking-widest uppercase">{abbr}</span>
+    <div className="flex flex-col items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white border border-gray-100 shadow-sm min-w-[100px]">
+      <img src={img} alt={name} className="h-10 w-auto object-contain" loading="lazy" />
       <span className="text-xs text-gray-500 whitespace-nowrap text-center leading-tight">{name}</span>
     </div>
   );
 }
 
-function BrandChip({ name }: { name: string }) {
+function BrandLogo({ name, img }: { name: string; img: string }) {
   return (
-    <div className="flex items-center justify-center px-6 py-3 rounded-xl bg-gray-50 border border-gray-100 min-w-[110px]">
-      <span className="text-sm font-semibold text-navy-700">{name}</span>
+    <div className="flex items-center justify-center px-6 py-3 rounded-xl bg-gray-50 border border-gray-100 min-w-[130px]">
+      <img src={img} alt={name} className="h-8 w-auto object-contain" loading="lazy" />
     </div>
   );
 }
@@ -43,7 +50,7 @@ export default function AccreditationsStrip() {
           <h2 className="text-center text-2xl font-bold text-navy-900 mb-6">Certified. Registered. Trusted.</h2>
           <div className="flex flex-wrap justify-center gap-3">
             {accreditations.map((a) => (
-              <AccredBadge key={a.abbr} name={a.name} abbr={a.abbr} />
+              <AccredBadge key={a.name} name={a.name} img={a.img} />
             ))}
           </div>
           <p className="text-center mt-4 text-sm text-solar-600 font-semibold">
@@ -55,9 +62,9 @@ export default function AccreditationsStrip() {
         <div>
           <p className="text-center text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4">Brands We Work With</p>
           <div className="overflow-hidden">
-            <div className="marquee-track gap-3 flex">
+            <div className="marquee-track gap-4 flex">
               {doubled.map((b, i) => (
-                <BrandChip key={`${b}-${i}`} name={b} />
+                <BrandLogo key={`${b.name}-${i}`} name={b.name} img={b.img} />
               ))}
             </div>
           </div>

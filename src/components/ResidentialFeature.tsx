@@ -30,7 +30,7 @@ export default function ResidentialFeature() {
           <div className="relative">
             <div className="rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
               <img
-                src="https://images.pexels.com/photos/4254151/pexels-photo-4254151.jpeg?auto=compress&cs=tinysrgb&w=900&h=680&fit=crop"
+                src="/images/homepage/residential-solar-installers.jpg.webp"
                 alt="Residential solar panel installation on Yorkshire home"
                 loading="lazy"
                 className="w-full h-full object-cover"
