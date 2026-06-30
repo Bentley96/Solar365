@@ -5,13 +5,19 @@ import FinalCTA from '../components/FinalCTA';
 import CaseStudies from '../components/CaseStudies';
 
 const morePhotos = [
-  { src: '/images/case-studies-0.png', alt: 'Solar 365 installation project' },
-  { src: '/images/case-studies-3.png', alt: 'Solar 365 installation project' },
-  { src: '/images/case-studies-5.webp', alt: 'Solar 365 installation project' },
-  { src: '/images/case-studies-6.png', alt: 'Solar 365 installation project' },
-  { src: '/images/case-studies-8.webp', alt: 'Solar 365 installation project' },
-  { src: '/images/case-studies-9.webp', alt: 'Solar 365 installation project' },
-];
+  'PHOTO-2024-05-23-09-34-32-4.jpg',
+  'PHOTO-2024-05-23-09-34-32-6.jpg',
+  'PHOTO-2024-11-08-14-16-33.jpg',
+  'PHOTO-2024-11-08-14-16-33-3.jpg',
+  'WhatsApp-Image-2023-02-15-at-11.43.19.jpeg',
+  'WhatsApp-Image-2023-02-15-at-11.43.20.jpeg',
+  'WhatsApp-Image-2023-04-05-at-19.45.13.jpeg',
+  'WhatsApp-Image-2023-04-05-at-19.45.13-2.jpeg',
+  'solar-panels-yorkshire.jpg',
+].map((file) => ({
+  src: `/images/Gallery/${file}`,
+  alt: 'Solar 365 installation project',
+}));
 
 export default function CaseStudiesPage() {
   return (
