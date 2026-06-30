@@ -10,7 +10,28 @@ const support = [
   { label: 'Privacy Policy', href: '#' },
 ];
 
-const accreds = ['MCS', 'HIES', 'TrustMark', 'NAPIT', 'Green Deal', 'Citation', 'Tesla', 'Cosy HP'];
+const accreds = [
+  { name: 'MCS Accredited', img: '/images/homepage/MCS-certified.png' },
+  { name: 'HIES Registered', img: '/images/homepage/hies-logo.png.webp' },
+  { name: 'TrustMark', img: '/images/homepage/trustmark.png.webp' },
+  { name: 'NAPIT', img: '/images/homepage/napit-logo.png' },
+  { name: 'Green Deal', img: '/images/homepage/green-deal-logo.png.webp' },
+  { name: 'Citation', img: '/images/homepage/ciatation-logo.png.webp' },
+  { name: 'BUS Scheme', img: '/images/homepage/bus-logo.png' },
+];
+
+const brands = [
+  { name: 'SolarEdge', img: '/images/homepage/solar-edge-1.png' },
+  { name: 'Solax Power', img: '/images/homepage/solax-power-1.png.webp' },
+  { name: 'Sunsynk', img: '/images/homepage/sun-synk-logo.png' },
+  { name: 'GivEnergy', img: '/images/homepage/giv-energy.png' },
+  { name: 'Jinko Solar', img: '/images/homepage/jinko-solar-1.png.webp' },
+  { name: 'LonGi Solar', img: '/images/homepage/longi-solar-.png' },
+  { name: 'EcoFlow', img: '/images/homepage/ecoflow-logo.png' },
+  { name: 'DMEGC Solar', img: '/images/homepage/dmegc-solar.png.webp' },
+  { name: 'Fox ESS', img: '/images/homepage/fox-ess-logo.png.webp' },
+  { name: 'Solis', img: '/images/homepage/solais-logo.png.webp' },
+];
 
 export default function Footer() {
   return (
@@ -98,17 +119,22 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Accreditations */}
+          {/* Accreditations & Brands */}
           <div>
-            <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-5">Accreditations</h4>
-            <div className="flex flex-wrap gap-2">
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-4">Accreditations</h4>
+            <div className="flex flex-wrap gap-2 mb-5">
               {accreds.map((a) => (
-                <span
-                  key={a}
-                  className="bg-navy-800 border border-navy-700 text-navy-300 text-xs font-semibold px-3 py-1.5 rounded-lg"
-                >
-                  {a}
-                </span>
+                <div key={a.name} className="bg-white rounded-lg p-1.5 flex items-center justify-center" style={{ width: '56px', height: '40px' }}>
+                  <img src={a.img} alt={a.name} className="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+              ))}
+            </div>
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-4">Brands</h4>
+            <div className="flex flex-wrap gap-2">
+              {brands.map((b) => (
+                <div key={b.name} className="bg-white rounded-lg p-1.5 flex items-center justify-center" style={{ width: '56px', height: '40px' }}>
+                  <img src={b.img} alt={b.name} className="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
               ))}
             </div>
             <p className="text-navy-400 text-xs mt-4 leading-relaxed">
