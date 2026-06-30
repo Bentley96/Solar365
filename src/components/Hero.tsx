@@ -59,24 +59,24 @@ export default function Hero() {
           backgroundPosition: 'center 40%',
         }}
       >
-        {/* Overlay — left half opaque white, right fades to transparent on large screens */}
         <div className="absolute inset-0 bg-white/85 lg:bg-gradient-to-r lg:from-white/95 lg:via-white/80 lg:to-white/30" />
 
         <div className="relative container-xl section-padding py-14 lg:py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left — Copy */}
             <div>
-              <p className="section-label mb-3">Yorkshire's Premium Solar Installer</p>
+              <p className="section-label mb-3">Yorkshire's Solar Specialists</p>
 
               <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-navy-900 leading-tight mb-5">
-                Cut Your Bills.<br />
-                <span className="text-solar-500">Go Solar Today.</span>
+                Solar Energy &amp;<br />
+                <span className="text-solar-500">Battery Storage</span><br />
+                for Yorkshire Homes
               </h1>
 
               <p className="text-lg text-gray-700 mb-7 max-w-xl leading-relaxed">
-                15+ years combined experience. MCS accredited. Octopus Energy trusted installer.
-                Yorkshire's only Cosy Heat Pump accredited installer based in Doncaster —
-                covering Yorkshire, Lincolnshire &amp; beyond.
+                We specialise in solar panel installation for homes and businesses across Yorkshire and the UK.
+                Over 15 years combined experience. MCS accredited. Octopus Energy Trusted Installer.
+                The only Cosy Heat Pump accredited installer based in Doncaster.
               </p>
 
               {/* Trust pills */}
@@ -105,7 +105,7 @@ export default function Hero() {
               </div>
 
               <p className="mt-5 text-gray-500 text-sm">
-                Free survey. No obligation. No hard sell. Just honest advice.
+                FREE initial energy survey. No obligation. No hard sell. Just honest advice.
               </p>
             </div>
 
@@ -246,8 +246,8 @@ export default function Hero() {
           {[
             { value: '500+', label: 'Installations Completed' },
             { value: '15+', label: 'Years Combined Experience' },
-            { value: '5★', label: 'Average Customer Rating' },
-            { value: '£0', label: 'Obligation to Get a Quote' },
+            { value: '4.9★', label: 'Google Rating (60+ Reviews)' },
+            { value: 'Up to 70%', label: 'Bill Reduction Possible' },
           ].map(({ value, label }) => (
             <div key={label}>
               <p className="text-2xl font-extrabold text-solar-500">{value}</p>

@@ -4,38 +4,38 @@ const services = [
   {
     icon: Sun,
     title: 'Residential Solar',
-    description: 'Cut bills by up to 70% with a tailored home solar PV system. Battery storage compatible.',
+    description: 'Solar PV panels lower your energy bills by up to 70% and reduce your carbon footprint. Our solar battery systems ensure electricity is supplied to your home whatever the weather.',
     href: '#residential',
     featured: true,
   },
   {
     icon: Building2,
     title: 'Commercial Solar',
-    description: 'Boost your green credentials and reduce overheads with a commercial PV installation.',
+    description: 'Solar PV for business is a fantastic cost-saving investment — it can even provide 100% bill reduction. Attract environmentally aware customers and add a green focus to your marketing.',
     href: '#',
   },
   {
     icon: Thermometer,
     title: 'Air Source Heat Pumps',
-    description: 'Efficient, eco-friendly heating. We\'re the only Cosy HP accredited installer in Doncaster.',
+    description: 'Transform your home\'s heating with an ASHP — efficient, eco-friendly, and eligible for the £7,500 Boiler Upgrade Scheme grant. The only Cosy HP accredited installer in Doncaster.',
     href: '#',
   },
   {
     icon: Leaf,
     title: 'ECO4 Funding',
-    description: 'Government grants for energy-efficient upgrades. Find out if you qualify for free or subsidised measures.',
+    description: 'You may be eligible for a FREE ECO4 grant to make your home more energy efficient. Covering insulation, heating, solar panels and more — find out if you qualify today.',
     href: '#',
   },
   {
     icon: Wrench,
     title: 'Solar Maintenance',
-    description: 'Keep your system running at peak performance. Cleaning, inspection &amp; optimisation.',
+    description: 'Neglected panels can lose 10–30% efficiency over time. Our maintenance service covers cleaning, optimisation, shading management and full system health checks.',
     href: '#',
   },
   {
     icon: Home,
     title: 'Residential Roofing',
-    description: 'Professional roofing services integrated with your solar installation project.',
+    description: 'Professional roofing services integrated with your solar installation project. One trusted team for both your roof and your panels.',
     href: '#',
   },
 ];
@@ -48,8 +48,8 @@ export default function ServicesGrid() {
           <p className="section-label mb-2">What We Do</p>
           <h2 className="section-heading mb-3">Our Services</h2>
           <p className="text-gray-600 max-w-xl mx-auto text-base">
-            From residential solar to commercial projects, heat pumps to ECO4 grants —
-            we cover everything under one roof.
+            We provide clear advice from the initial consultation through to design and installation.
+            From residential solar to commercial projects, heat pumps to ECO4 grants — all under one roof.
           </p>
         </div>
 
@@ -90,7 +90,10 @@ export default function ServicesGrid() {
         {/* Inline CTA */}
         <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100 text-center">
           <p className="text-navy-900 font-semibold mb-1">Not sure which service is right for you?</p>
-          <p className="text-gray-500 text-sm mb-4">Give us a call and we'll point you in the right direction — no hard sell, just honest advice.</p>
+          <p className="text-gray-500 text-sm mb-4">
+            We offer FREE initial energy surveys and no-obligation quotes. Give us a call and we'll
+            point you in the right direction — no hard sell, just honest advice.
+          </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="#quote" className="btn-primary">
               Get a Free Quote <ArrowRight className="w-4 h-4" />
