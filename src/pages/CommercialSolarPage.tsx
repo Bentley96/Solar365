@@ -31,12 +31,6 @@ const benefits = [
   },
 ];
 
-const photoStrip = [
-  '/images/commercial-solar-6.webp',
-  '/images/commercial-solar-7.webp',
-  '/images/commercial-solar-9.webp',
-];
-
 export default function CommercialSolarPage() {
   return (
     <>
@@ -59,15 +53,6 @@ export default function CommercialSolarPage() {
             </a>
           </div>
         </section>
-
-        {/* Feature image */}
-        <div className="w-full">
-          <img
-            src="/images/commercial-solar-5.webp"
-            alt="Commercial solar panel installation"
-            className="w-full max-h-[480px] object-cover"
-          />
-        </div>
 
         {/* Sustainable Solar For Business */}
         <section className="section-padding bg-white">
@@ -123,19 +108,6 @@ export default function CommercialSolarPage() {
                 no-obligation FREE energy surveys. Harnessing solar power reduces energy from the
                 grid, lowers bills, and surplus power can be sold back.
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Photo strip */}
-        <section className="px-4 sm:px-6 lg:px-8 py-10 bg-white">
-          <div className="container-xl">
-            <div className="grid grid-cols-3 gap-3">
-              {photoStrip.map((src, i) => (
-                <div key={i} className="overflow-hidden rounded-xl">
-                  <img src={src} alt="Solar 365 commercial installation" className="w-full h-48 object-cover" loading="lazy" />
-                </div>
-              ))}
             </div>
           </div>
         </section>

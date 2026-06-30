@@ -10,12 +10,6 @@ const stats = [
   { icon: Leaf, value: '50%', label: 'Carbon reduction potential' },
 ];
 
-const photoStrip = [
-  '/images/air-source-6.webp',
-  '/images/air-source-7.webp',
-  '/images/air-source-9.webp',
-];
-
 export default function AirSourceHeatPumpsPage() {
   return (
     <>
@@ -40,15 +34,6 @@ export default function AirSourceHeatPumpsPage() {
             </a>
           </div>
         </section>
-
-        {/* Feature image */}
-        <div className="w-full">
-          <img
-            src="/images/air-source-5.jpg"
-            alt="Air source heat pump installation"
-            className="w-full max-h-[480px] object-cover"
-          />
-        </div>
 
         {/* Key Stats */}
         <section className="py-10 px-4 sm:px-6 lg:px-8 bg-solar-500">
@@ -140,19 +125,6 @@ export default function AirSourceHeatPumpsPage() {
                 every unit of electricity consumed — dramatically cheaper than traditional gas or
                 electric heating.
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Photo strip */}
-        <section className="px-4 sm:px-6 lg:px-8 pb-12 bg-gray-50">
-          <div className="container-xl">
-            <div className="grid grid-cols-3 gap-3">
-              {photoStrip.map((src, i) => (
-                <div key={i} className="overflow-hidden rounded-xl">
-                  <img src={src} alt="Air source heat pump installation" className="w-full h-44 object-cover" loading="lazy" />
-                </div>
-              ))}
             </div>
           </div>
         </section>

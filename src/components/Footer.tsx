@@ -146,9 +146,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-navy-800 pt-7 space-y-3">
           <p className="text-navy-400 text-xs leading-relaxed">
-            <strong className="text-navy-300">Credit broker disclosure:</strong> Solar 365 Ltd acts as a credit broker, not a lender.
-            Finance is provided by third-party lenders via Phoenix Financial Consultants, subject to status and credit checks.
-            Not all applicants will be accepted. FCA authorised and regulated.
+            SOLAR 365 LTD is an Introducer Appointed Representative (Financial Services Register No. 985358) of
+            Phoenix Financial Consultants Limited (Phoenix). Phoenix is a credit broker, not a lender. Phoenix is
+            authorised and regulated by the Financial Conduct Authority (FRN: 539195), and offers finance from its
+            panel of lenders. All finance subject to status and credit checks.
           </p>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-navy-500 text-xs">
             <p>&copy; {new Date().getFullYear()} Solar 365 Ltd. All rights reserved.</p>

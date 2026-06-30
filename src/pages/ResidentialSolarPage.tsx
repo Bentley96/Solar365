@@ -14,12 +14,6 @@ const benefits = [
   'Extensive product warranty',
 ];
 
-const galleryImages = [
-  '/images/residential-solar-6.webp',
-  '/images/residential-solar-7.webp',
-  '/images/residential-solar-9.webp',
-];
-
 export default function ResidentialSolarPage() {
   return (
     <>
@@ -42,15 +36,6 @@ export default function ResidentialSolarPage() {
             </a>
           </div>
         </section>
-
-        {/* Feature image */}
-        <div className="w-full">
-          <img
-            src="/images/residential-solar-5.webp"
-            alt="Residential solar panel installation in Yorkshire"
-            className="w-full max-h-[480px] object-cover"
-          />
-        </div>
 
         {/* Sustainable Solar Energy For Your Home */}
         <section className="section-padding bg-white">
@@ -119,19 +104,6 @@ export default function ResidentialSolarPage() {
               renewable electricity to use in your home — reducing or eliminating your reliance on
               the national grid.
             </p>
-          </div>
-        </section>
-
-        {/* Photo strip */}
-        <section className="px-4 sm:px-6 lg:px-8 pb-12 bg-white">
-          <div className="container-xl">
-            <div className="grid grid-cols-3 gap-3">
-              {galleryImages.map((src, i) => (
-                <div key={i} className="overflow-hidden rounded-xl">
-                  <img src={src} alt="Solar 365 residential installation" className="w-full h-44 object-cover" loading="lazy" />
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 
