@@ -77,7 +77,7 @@ export default function CommercialSolarPage() {
               </div>
               <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                 <img
-                  src="/images/commercial-solar-5.webp"
+                  src="/images/CommercialSolar/WhatsApp-Image-2022-11-09-at-13.49.00-1-736x1024.jpeg.webp"
                   alt="Commercial solar panel installation"
                   loading="lazy"
                   className="w-full h-full object-cover"

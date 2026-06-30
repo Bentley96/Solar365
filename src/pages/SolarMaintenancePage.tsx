@@ -10,12 +10,6 @@ const stats = [
   { value: '20–40%', label: 'Efficiency loss from shading' },
 ];
 
-const photoStrip = [
-  '/images/maintenance-6.webp',
-  '/images/maintenance-7.webp',
-  '/images/maintenance-8.webp',
-];
-
 export default function SolarMaintenancePage() {
   return (
     <>
@@ -39,15 +33,6 @@ export default function SolarMaintenancePage() {
           </div>
         </section>
 
-        {/* Feature image */}
-        <div className="w-full">
-          <img
-            src="/images/maintenance-5.webp"
-            alt="Solar panel maintenance and cleaning"
-            className="w-full max-h-[480px] object-cover"
-          />
-        </div>
-
         {/* Stats Grid */}
         <section className="py-12 px-4 sm:px-6 lg:px-8 bg-solar-500">
           <div className="container-xl grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -63,20 +48,30 @@ export default function SolarMaintenancePage() {
         {/* Solar Panel Cleaning */}
         <section className="section-padding bg-white">
           <div className="container-xl">
-            <div className="max-w-3xl mx-auto">
-              <p className="section-label mb-3">Cleaning</p>
-              <h2 className="section-heading mb-6">Solar Panel Cleaning & Maintenance</h2>
-              <div className="space-y-4 text-gray-700 text-lg">
-                <p>
-                  Regular maintenance helps prevent issues such as reduced performance due to dirt
-                  accumulation, physical damage, or system inefficiencies. While solar panels are
-                  generally low-maintenance, neglecting them can result in a 10–30% drop in
-                  efficiency over time.
-                </p>
-                <p>
-                  Our services cover both solar panels and solar battery systems, ensuring your
-                  entire installation performs at its best year-round.
-                </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p className="section-label mb-3">Cleaning</p>
+                <h2 className="section-heading mb-6">Solar Panel Cleaning & Maintenance</h2>
+                <div className="space-y-4 text-gray-700 text-lg">
+                  <p>
+                    Regular maintenance helps prevent issues such as reduced performance due to dirt
+                    accumulation, physical damage, or system inefficiencies. While solar panels are
+                    generally low-maintenance, neglecting them can result in a 10–30% drop in
+                    efficiency over time.
+                  </p>
+                  <p>
+                    Our services cover both solar panels and solar battery systems, ensuring your
+                    entire installation performs at its best year-round.
+                  </p>
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+                <img
+                  src="/images/SolarMaintenance/solar-maintenance-781x1024.jpg.webp"
+                  alt="Solar panel cleaning and maintenance"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -124,15 +119,38 @@ export default function SolarMaintenancePage() {
           </div>
         </section>
 
-        {/* Photo strip */}
-        <section className="px-4 sm:px-6 lg:px-8 pb-12 bg-gray-50">
+        {/* Performance Management */}
+        <section className="section-padding bg-white">
           <div className="container-xl">
-            <div className="grid grid-cols-3 gap-3">
-              {photoStrip.map((src, i) => (
-                <div key={i} className="overflow-hidden rounded-xl">
-                  <img src={src} alt="Solar panel maintenance" className="w-full h-44 object-cover" loading="lazy" />
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] order-last lg:order-first">
+                <img
+                  src="/images/SolarMaintenance/solar-performance-management.jpg.webp"
+                  alt="Solar system performance monitoring and management"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <p className="section-label mb-3">Performance Management</p>
+                <h2 className="section-heading mb-6">Keep Your System Performing At Its Best</h2>
+                <div className="space-y-4 text-gray-700 text-lg">
+                  <p>
+                    Ongoing performance monitoring helps spot underperforming panels, faults, or
+                    shading issues before they cost you money — so your system keeps delivering the
+                    savings it was designed for.
+                  </p>
+                  <p>
+                    Combined with regular cleaning and optimisation, proactive management protects
+                    your investment and maximises the return on your solar installation for years to
+                    come.
+                  </p>
                 </div>
-              ))}
+                <a href="/#quote" className="btn-primary mt-8">
+                  Book a Service
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
         </section>

@@ -58,7 +58,7 @@ export default function ResidentialSolarPage() {
               </div>
               <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                 <img
-                  src="/images/residential-solar-5.webp"
+                  src="/images/ResidentialSolar/residential-solar-yorkshire.jpg.webp"
                   alt="Residential solar panel installation in Yorkshire"
                   loading="lazy"
                   className="w-full h-full object-cover"
@@ -109,7 +109,7 @@ export default function ResidentialSolarPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] order-last lg:order-first">
                 <img
-                  src="/images/residential-solar-7.webp"
+                  src="/images/ResidentialSolar/residential-solar-installing.jpg.webp"
                   alt="Solar panels generating renewable electricity"
                   loading="lazy"
                   className="w-full h-full object-cover"
