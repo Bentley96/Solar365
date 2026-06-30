@@ -65,7 +65,7 @@ export default function Eco4FundingPage() {
               </div>
               <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                 <img
-                  src="/images/eco4-6.jpg"
+                  src="/images/ECO4Funding/solar-panel-eco-fundinhg.jpg.webp"
                   alt="Energy efficient home improvements funded by ECO4"
                   loading="lazy"
                   className="w-full h-full object-cover"
