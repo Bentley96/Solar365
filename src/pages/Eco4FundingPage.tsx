@@ -38,6 +38,15 @@ export default function Eco4FundingPage() {
           </div>
         </section>
 
+        {/* Feature image */}
+        <div className="w-full">
+          <img
+            src="/images/eco4-6.jpg"
+            alt="ECO4 funded energy efficiency installation"
+            className="w-full max-h-[480px] object-cover"
+          />
+        </div>
+
         {/* What is ECO4 */}
         <section className="section-padding bg-white">
           <div className="container-xl">
@@ -111,6 +120,19 @@ export default function Eco4FundingPage() {
                 Check Your Eligibility Free
                 <ArrowRight className="w-5 h-5" />
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Photo strip */}
+        <section className="px-4 sm:px-6 lg:px-8 py-10 bg-white">
+          <div className="container-xl">
+            <div className="grid grid-cols-3 gap-3">
+              {['/images/eco4-5.webp', '/images/eco4-7.webp', '/images/eco4-10.webp'].map((src, i) => (
+                <div key={i} className="overflow-hidden rounded-xl">
+                  <img src={src} alt="ECO4 funded home improvement" className="w-full h-44 object-cover" loading="lazy" />
+                </div>
+              ))}
             </div>
           </div>
         </section>
