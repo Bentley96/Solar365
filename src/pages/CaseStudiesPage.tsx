@@ -4,6 +4,15 @@ import Footer from '../components/Footer';
 import FinalCTA from '../components/FinalCTA';
 import CaseStudies from '../components/CaseStudies';
 
+const morePhotos = [
+  { src: '/images/case-studies-0.png', alt: 'Solar 365 installation project' },
+  { src: '/images/case-studies-3.png', alt: 'Solar 365 installation project' },
+  { src: '/images/case-studies-5.webp', alt: 'Solar 365 installation project' },
+  { src: '/images/case-studies-6.png', alt: 'Solar 365 installation project' },
+  { src: '/images/case-studies-8.webp', alt: 'Solar 365 installation project' },
+  { src: '/images/case-studies-9.webp', alt: 'Solar 365 installation project' },
+];
+
 export default function CaseStudiesPage() {
   return (
     <>
@@ -35,6 +44,28 @@ export default function CaseStudiesPage() {
         </section>
 
         <CaseStudies />
+
+        {/* More project photos */}
+        <section className="section-padding bg-gray-50">
+          <div className="container-xl">
+            <div className="text-center mb-8">
+              <p className="section-label mb-2">More From Our Projects</p>
+              <h2 className="section-heading">Further Installation Photos</h2>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {morePhotos.map((img, i) => (
+                <div key={i} className="overflow-hidden rounded-xl shadow-md card-hover">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-56 object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Contact prompt */}
         <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">

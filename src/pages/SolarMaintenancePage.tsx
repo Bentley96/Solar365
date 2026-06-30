@@ -10,6 +10,12 @@ const stats = [
   { value: '20–40%', label: 'Efficiency loss from shading' },
 ];
 
+const photoStrip = [
+  '/images/maintenance-6.webp',
+  '/images/maintenance-7.webp',
+  '/images/maintenance-8.webp',
+];
+
 export default function SolarMaintenancePage() {
   return (
     <>
@@ -32,6 +38,15 @@ export default function SolarMaintenancePage() {
             </a>
           </div>
         </section>
+
+        {/* Feature image */}
+        <div className="w-full">
+          <img
+            src="/images/maintenance-5.webp"
+            alt="Solar panel maintenance and cleaning"
+            className="w-full max-h-[480px] object-cover"
+          />
+        </div>
 
         {/* Stats Grid */}
         <section className="py-12 px-4 sm:px-6 lg:px-8 bg-solar-500">
@@ -105,6 +120,19 @@ export default function SolarMaintenancePage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Photo strip */}
+        <section className="px-4 sm:px-6 lg:px-8 pb-12 bg-gray-50">
+          <div className="container-xl">
+            <div className="grid grid-cols-3 gap-3">
+              {photoStrip.map((src, i) => (
+                <div key={i} className="overflow-hidden rounded-xl">
+                  <img src={src} alt="Solar panel maintenance" className="w-full h-44 object-cover" loading="lazy" />
+                </div>
+              ))}
             </div>
           </div>
         </section>

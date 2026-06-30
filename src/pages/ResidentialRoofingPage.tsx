@@ -11,6 +11,15 @@ const benefits = [
   'Full aftercare support',
 ];
 
+const galleryImages = [
+  { src: '/images/residential-roofing-0.png', alt: 'Residential roofing installation' },
+  { src: '/images/residential-roofing-2.webp', alt: 'Roofing work in progress' },
+  { src: '/images/residential-roofing-3.png', alt: 'Completed roofing project' },
+  { src: '/images/residential-roofing-4.webp', alt: 'Roof repair and solar integration' },
+  { src: '/images/residential-roofing-5.png', alt: 'Solar and roofing installation' },
+  { src: '/images/residential-roofing-6.webp', alt: 'Finished roofing project' },
+];
+
 export default function ResidentialRoofingPage() {
   return (
     <>
@@ -74,6 +83,34 @@ export default function ResidentialRoofingPage() {
                   </a>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Mini Gallery */}
+        <section className="section-padding bg-gray-50">
+          <div className="container-xl">
+            <div className="text-center mb-8">
+              <p className="section-label mb-2">Our Roofing Work</p>
+              <h2 className="section-heading">Recent Roofing Projects</h2>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {galleryImages.map((img, i) => (
+                <div key={i} className="overflow-hidden rounded-xl shadow-md card-hover">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-56 object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-10">
+              <a href="/#quote" className="btn-primary-lg inline-flex">
+                Get a Free Roofing Survey
+                <ArrowRight className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </section>
