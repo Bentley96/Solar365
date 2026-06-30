@@ -97,7 +97,7 @@ export default function OctopusSection() {
               </div>
 
               <div className="space-y-3">
-                {octopusFeatures.map(({ title, description, highlight }) => (
+                {octopusFeatures.map(({ title, description }) => (
                   <div key={title} className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm flex gap-4 items-start">
                     <div className="flex-shrink-0 w-10 h-10 bg-solar-50 rounded-lg flex items-center justify-center">
                       <PoundSterling className="w-4 h-4 text-solar-500" />

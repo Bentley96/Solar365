@@ -1,4 +1,4 @@
-import { ArrowRight, Battery, Tractor } from 'lucide-react';
+import { ArrowRight, Tractor } from 'lucide-react';
 
 const cases = [
   {
