@@ -1,4 +1,4 @@
-import { ArrowRight, Battery } from 'lucide-react';
+import { ArrowRight, Battery, Tractor } from 'lucide-react';
 
 const cases = [
   {
@@ -7,7 +7,7 @@ const cases = [
     size: '15 kW',
     image: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=700&h=480&fit=crop',
     excerpt:
-      'A family-run manufacturer wanted to cut grid reliance and boost sustainability. We installed a 15 kW solar PV system using premium JA Solar panels, offsetting a large portion of their daily electricity usage.',
+      'A family-run curtain and blinds manufacturer wanted to lower its energy bills and reduce reliance on the grid while enhancing its green credentials. With machinery and lighting running throughout the day, solar PV was an ideal fit. We installed a 15 kW solar PV system on their factory roof using premium JA Solar panels and a smart inverter system.',
     href: 'https://solar-365.co.uk/case_studies/curtain-factory-outlet/',
   },
   {
@@ -16,18 +16,18 @@ const cases = [
     size: '25 kW',
     image: 'https://images.pexels.com/photos/97079/pexels-photo-97079.jpeg?auto=compress&cs=tinysrgb&w=700&h=480&fit=crop',
     excerpt:
-      'This busy MOT garage faced rising overheads from diagnostic tools, lifts, and lighting. We delivered a 25 kW roof-mounted PV system across the workshop and office, meeting peak daytime demand.',
+      'This busy MOT garage faced rising overheads from diagnostic tools, lifts, and lighting. With a goal of making the business greener and more cost-efficient, they turned to us for a tailored solar solution. We delivered a 25 kW roof-mounted PV system across the workshop and office building, designed to meet peak daytime energy demands.',
     href: 'https://solar-365.co.uk/case_studies/ja-autos/',
   },
   {
-    title: 'Tesla Powerwall Installation',
-    type: 'Residential Solar + Battery',
-    size: 'Powerwall 3',
+    title: 'TA — Farm Installation',
+    type: 'Agricultural Solar',
+    size: '30 kW',
     image: 'https://images.pexels.com/photos/9875468/pexels-photo-9875468.jpeg?auto=compress&cs=tinysrgb&w=700&h=480&fit=crop',
     excerpt:
-      'As Tesla Certified Installers, we designed and installed a complete Powerwall 3 battery storage system alongside a high-yield solar array — enabling this Yorkshire home to achieve near energy independence.',
-    href: '#',
-    badge: 'Tesla Certified',
+      'After completing a detailed site assessment, we installed a 30 kW PV system on the farm\'s storage barn. The system features high-efficiency panels paired with Power Optimisers to maximise yield and system visibility. The farm now benefits from significantly lower energy bills and a reduced carbon footprint.',
+    href: 'https://solar-365.co.uk/case-studies/',
+    badge: 'Agricultural',
   },
 ];
 
@@ -39,8 +39,8 @@ export default function CaseStudies() {
           <p className="section-label mb-2">Our Work</p>
           <h2 className="section-heading mb-3">Featured Case Studies</h2>
           <p className="text-gray-600 max-w-xl mx-auto text-base">
-            Real installs, real savings. See how we've helped homes and businesses across
-            Yorkshire harness the power of solar.
+            Real installs, real savings. We undertake commercial solar, residential solar, battery storage,
+            air source heat pumps and more across Yorkshire and beyond.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export default function CaseStudies() {
                   </span>
                   {badge && (
                     <span className="bg-white text-navy-900 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
-                      <Battery className="w-3 h-3 text-solar-500" />
+                      <Tractor className="w-3 h-3 text-solar-500" />
                       {badge}
                     </span>
                   )}
@@ -74,8 +74,8 @@ export default function CaseStudies() {
                 <p className="text-gray-600 text-sm leading-relaxed mb-5 flex-1">{excerpt}</p>
                 <a
                   href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noreferrer' : undefined}
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center gap-1.5 text-solar-600 text-sm font-semibold hover:gap-3 transition-all"
                 >
                   Find Out More <ArrowRight className="w-4 h-4" />

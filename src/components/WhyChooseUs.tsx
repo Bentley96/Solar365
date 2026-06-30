@@ -11,7 +11,7 @@ const stats = [
     icon: Star,
     value: '4.9★',
     label: 'Customer Rating',
-    sub: 'Verified reviews across platforms',
+    sub: '60+ verified reviews on Google',
   },
   {
     icon: MapPin,
@@ -35,8 +35,8 @@ export default function WhyChooseUs() {
           <p className="section-label mb-2">Why Choose Solar 365</p>
           <h2 className="section-heading mb-4">Yorkshire's Most Trusted Solar Installer</h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-base leading-relaxed">
-            We're not a national call centre. We're a Yorkshire-based, family-run team that shows
-            up, does the job right, and stands behind every installation we carry out.
+            We're a Yorkshire-based company built on trust and values. We show up, do the job right,
+            and stand behind every installation we carry out — no call centres, no subcontractors.
           </p>
         </div>
 
@@ -64,21 +64,25 @@ export default function WhyChooseUs() {
               Covering Yorkshire &amp; Beyond
             </h3>
             <p className="text-gray-600 mb-4 leading-relaxed">
-              Based in Doncaster, our installations span Worksop, Retford, Leeds, Wakefield,
-              Sheffield, Gainsborough, Scunthorpe, Goole, Pontefract, Castleford, Wetherby,
-              Lincolnshire, Nottinghamshire, Derbyshire, and throughout the wider UK.
+              Based in Doncaster, we install throughout Yorkshire and the wider UK — Worksop, Retford,
+              Gainsborough, Brigg, Hessle, Scunthorpe, Goole, Thorne, Pontefract, Castleford, Wetherby,
+              Wakefield, Leeds, Huddersfield, Durham, Lincolnshire, Lancashire, Nottinghamshire, Derbyshire
+              and beyond.
             </p>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              Every installation is carried out by our own MCS-certified team — we don't
-              subcontract. No surprises, no shortcuts. Just clean, efficient solar done properly.
+              Every installation is carried out by our own MCS-certified team — we don't subcontract.
+              No surprises, no shortcuts. Just clean, efficient solar done properly, with a full system
+              warranty and ongoing aftercare support.
             </p>
 
             <ul className="space-y-2">
               {[
-                'Free initial energy survey at your property',
+                'FREE initial energy survey at your property',
+                'Full savings projection — see your returns before you commit',
                 'Transparent pricing — no hidden costs',
                 'Full system warranty &amp; aftercare support',
                 'Octopus Energy approved — independently vetted',
+                'Finance available via Phoenix Financial Consultants',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
                   <ThumbsUp className="w-4 h-4 text-solar-500 mt-0.5 flex-shrink-0" />
@@ -93,10 +97,18 @@ export default function WhyChooseUs() {
               <Zap className="w-8 h-8 text-solar-400 mb-3" />
               <p className="font-bold text-lg mb-2">Octopus Energy Trusted Installer</p>
               <p className="text-navy-200 text-sm leading-relaxed">
-                One of a select few installers hand-picked by Octopus Energy.
-                This means you get access to exclusive tariffs, smart energy
-                products, and the peace of mind that comes with independent verification.
+                One of a select few installers hand-picked by Octopus Energy. This means you get
+                access to exclusive tariffs, smart energy products, and the peace of mind that comes
+                with independent verification. Switch through us and earn £50 off your first bill.
               </p>
+              <a
+                href="https://octopus.energy/quote/?affiliate=solar365"
+                target="_blank"
+                rel="noreferrer"
+                className="text-solar-400 text-sm font-semibold mt-3 inline-flex items-center gap-1 hover:gap-2 transition-all"
+              >
+                Find out more about Octopus <ArrowRight className="w-3.5 h-3.5" />
+              </a>
             </div>
 
             <div className="flex gap-4">
