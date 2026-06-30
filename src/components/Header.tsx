@@ -1,25 +1,26 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Phone, MapPin, Clock, Facebook, Instagram, Linkedin,
   ChevronDown, Menu, X, Megaphone
 } from 'lucide-react';
 
 const services = [
-  { label: 'Residential Solar', href: '#services' },
-  { label: 'Commercial Solar', href: '#services' },
-  { label: 'Air Source Heat Pumps', href: '#services' },
-  { label: 'ECO4 Funding', href: '#services' },
-  { label: 'Solar Maintenance', href: '#services' },
-  { label: 'Residential Roofing', href: '#services' },
+  { label: 'Residential Solar', to: '/residential-solar' },
+  { label: 'Commercial Solar', to: '/commercial-solar' },
+  { label: 'Air Source Heat Pumps', to: '/air-source-heat-pumps' },
+  { label: 'ECO4 Funding', to: '/eco4-funding' },
+  { label: 'Solar Maintenance', to: '/solar-maintenance' },
+  { label: 'Residential Roofing', to: '/residential-roofing' },
 ];
 
 const navLinks = [
-  { label: 'Home', href: '#' },
-  { label: 'Services', href: '#services', dropdown: services },
-  { label: 'Case Studies', href: '#case-studies' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'FAQs', href: '#faqs' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', to: '/' },
+  { label: 'Services', to: '/', dropdown: services },
+  { label: 'Case Studies', to: '/case-studies' },
+  { label: 'Gallery', to: '/gallery' },
+  { label: 'FAQs', to: '/faqs' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 export default function Header() {
@@ -89,13 +90,13 @@ export default function Header() {
       <nav className={`bg-white border-b border-gray-200 transition-all duration-300 ${scrolled ? 'py-2' : 'py-3'}`}>
         <div className="container-xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6">
           {/* Logo */}
-          <a href="#" className="flex-shrink-0">
+          <Link to="/" className="flex-shrink-0">
             <img
               src="https://solar-365.co.uk/wp-content/uploads/2022/11/Solar-365-Logo-1024x247.png"
               alt="Solar 365"
               className={`transition-all duration-300 ${scrolled ? 'h-8' : 'h-10'} w-auto`}
             />
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-1">
@@ -112,32 +113,32 @@ export default function Header() {
                   {servicesOpen && (
                     <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50">
                       {link.dropdown.map((sub) => (
-                        <a
+                        <Link
                           key={sub.label}
-                          href={sub.href}
+                          to={sub.to}
                           onClick={() => setServicesOpen(false)}
                           className="block px-4 py-2.5 text-sm text-navy-800 hover:bg-solar-50 hover:text-solar-600 font-medium transition-colors"
                         >
                           {sub.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
                 </div>
               ) : (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.to}
                   className="text-navy-800 hover:text-solar-600 font-semibold px-4 py-2 rounded-md transition-colors text-sm"
                 >
                   {link.label}
-                </a>
+                </Link>
               )
             )}
           </div>
 
           {/* CTA */}
-          <a href="#quote" className="hidden lg:inline-flex btn-primary text-sm whitespace-nowrap">
+          <a href="/#quote" className="hidden lg:inline-flex btn-primary text-sm whitespace-nowrap">
             Get a Free Quote
           </a>
 
@@ -168,32 +169,32 @@ export default function Header() {
                     {mobileServicesOpen && (
                       <div className="ml-4 mt-1 space-y-1">
                         {link.dropdown.map((sub) => (
-                          <a
+                          <Link
                             key={sub.label}
-                            href={sub.href}
+                            to={sub.to}
                             onClick={() => setMobileOpen(false)}
                             className="block px-3 py-2 text-sm text-navy-600 hover:text-solar-600 font-medium transition-colors"
                           >
                             {sub.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
                   </div>
                 ) : (
-                  <a
+                  <Link
                     key={link.label}
-                    href={link.href}
+                    to={link.to}
                     onClick={() => setMobileOpen(false)}
                     className="block text-navy-800 font-semibold px-3 py-2.5 rounded-md hover:bg-gray-50 transition-colors text-sm"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 )
               )}
               <div className="pt-3">
                 <a
-                  href="#quote"
+                  href="/#quote"
                   onClick={() => setMobileOpen(false)}
                   className="btn-primary w-full justify-center"
                 >
