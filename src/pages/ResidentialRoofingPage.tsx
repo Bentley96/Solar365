@@ -12,13 +12,35 @@ const benefits = [
 ];
 
 const galleryImages = [
-  { src: '/images/residential-roofing-0.png', alt: 'Residential roofing installation' },
-  { src: '/images/residential-roofing-2.webp', alt: 'Roofing work in progress' },
-  { src: '/images/residential-roofing-3.png', alt: 'Completed roofing project' },
-  { src: '/images/residential-roofing-4.webp', alt: 'Roof repair and solar integration' },
-  { src: '/images/residential-roofing-5.png', alt: 'Solar and roofing installation' },
-  { src: '/images/residential-roofing-6.webp', alt: 'Finished roofing project' },
-];
+  '04f278bd-b2c0-4df8-b30b-4324c5622460.jpg',
+  '0d5c91d0-6a8b-4f35-8412-f5248027dffb.jpg',
+  '272dc4d7-8481-4876-a21f-8dd1439ed60e.jpg',
+  '2e4714f0-77df-4c18-ab23-8709c49c2bb7.jpg',
+  '3daadcda-1304-4c68-9adc-b131605f9f81.jpg',
+  '4ad3df73-4bd5-46f4-b52b-1f9b93ec541f.jpg',
+  '4d7b15ba-e105-4a91-a039-c5ab8b1e0e84.jpg',
+  '5224711b-f13a-4949-8c24-09ef88da68c6.jpg',
+  '57a0b361-f809-48e3-9ffc-a7a78f727b4c.jpg',
+  '5d80c6dc-a3c6-4960-acc6-82b5aabe9344.jpg',
+  '66c6340b-2ad8-4361-8258-faef445e7349.jpg',
+  '741c16c0-3597-496c-ac97-58972fe3e6d0.jpg',
+  '7667c399-2351-4063-a4dc-ec9dccca0f3d.jpg',
+  '7a3d6195-99dc-44db-9495-deffe7d9e71e.jpg',
+  '7f4a5979-059c-497b-8d1f-c5c054dcc32d.jpg',
+  '8195bc3b-b6a2-44e8-a015-5841f5c6faa6.jpg',
+  '9546b735-d90a-4c74-b4b0-f6cf49d520c2.jpg',
+  '9b7e1ae7-2ef4-4b21-a86d-7f03e4cc62b7.jpg',
+  'IMG_4417-scaled.jpg',
+  'IMG_4430-scaled.jpg',
+  'b70c1e40-de91-4ffc-b581-5fd4d7a12b38.jpg',
+  'c0a741eb-b4c7-4df2-9fd0-aadcd074b2ef.jpg',
+  'cfeed1b1-4c9d-42e4-842b-a0f2384db240.jpg',
+  'd83320c7-f4be-4b4c-911d-3a62667440d2.jpg',
+  'fe9a3f29-2e4f-4203-8a10-573d5b4a43cd.jpg',
+].map((file) => ({
+  src: `/images/ResidentialRoofing/${file}`,
+  alt: 'Solar 365 residential roofing project',
+}));
 
 export default function ResidentialRoofingPage() {
   return (
