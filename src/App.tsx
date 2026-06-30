@@ -14,6 +14,7 @@ import Testimonials from './components/Testimonials';
 import FinanceBanner from './components/FinanceBanner';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 const ResidentialSolarPage = lazy(() => import('./pages/ResidentialSolarPage'));
 const CommercialSolarPage = lazy(() => import('./pages/CommercialSolarPage'));
@@ -58,6 +59,7 @@ export default function App() {
         </div>
       }
     >
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/residential-solar" element={<ResidentialSolarPage />} />
