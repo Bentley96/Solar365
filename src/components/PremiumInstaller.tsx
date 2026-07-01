@@ -65,14 +65,15 @@ export default function PremiumInstaller() {
             </div>
           </div>
 
-          {/* Right — image placeholder (swap the div for an <img> when ready) */}
+          {/* Right — image */}
           <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] bg-gray-100 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center text-center p-8">
-              {/* TODO: replace this placeholder with your premium installer image, e.g.
-                  <img src="/images/premium-installer.jpg" alt="Solar 365 premium installer" className="w-full h-full object-cover" /> */}
-              <Award className="w-10 h-10 text-gray-400 mb-3" />
-              <p className="text-gray-500 font-semibold">Premium installer image</p>
-              <p className="text-gray-400 text-sm mt-1">Add your image here</p>
+            <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+              <img
+                src="/images/NewProject/tesla.jpeg"
+                alt="Solar 365 premium Tesla installation"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
