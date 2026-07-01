@@ -33,8 +33,8 @@ function HomePage() {
     <>
       <Header />
       <main>
-        <Hero />
         <PricePromise />
+        <Hero />
         <OctopusSection />
         <AccreditationsStrip />
         <WhyChooseUs />

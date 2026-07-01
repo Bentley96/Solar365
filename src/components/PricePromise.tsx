@@ -1,11 +1,8 @@
-import { ArrowRight, PoundSterling, Zap } from 'lucide-react';
-import { useQuote } from './QuoteContext';
+import { PoundSterling, Zap } from 'lucide-react';
 
 export default function PricePromise() {
-  const { openQuote } = useQuote();
-
   return (
-    <section className="bg-navy-900 border-b border-navy-800">
+    <section className="bg-navy-900 border-b border-navy-800" style={{ paddingTop: '112px' }}>
       <div className="container-xl px-4 sm:px-6 lg:px-8 py-5">
         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
           {/* Price promise */}
@@ -28,15 +25,6 @@ export default function PricePromise() {
               bill when you switch through us
             </p>
           </div>
-
-          {/* CTA */}
-          <button
-            onClick={openQuote}
-            className="btn-primary whitespace-nowrap flex-shrink-0 justify-center"
-          >
-            Get Your Best Price
-            <ArrowRight className="w-4 h-4" />
-          </button>
         </div>
       </div>
     </section>

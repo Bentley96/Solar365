@@ -21,7 +21,6 @@ export default function Hero() {
       <div
         className="relative"
         style={{
-          paddingTop: '112px',
           backgroundImage: 'url(/images/homepage/commercial-solar-panels.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center 40%',
