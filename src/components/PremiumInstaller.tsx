@@ -22,8 +22,8 @@ export default function PremiumInstaller() {
     <section className="bg-white section-padding border-y border-gray-100">
       <div className="container-xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left — copy */}
-          <div>
+          {/* Copy (right on desktop) */}
+          <div className="lg:order-last">
             <div className="inline-flex items-center gap-2 bg-solar-50 border border-solar-200 text-solar-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
               <Star className="w-3.5 h-3.5" />
               Premium Accredited Installer
@@ -65,8 +65,8 @@ export default function PremiumInstaller() {
             </div>
           </div>
 
-          {/* Right — image */}
-          <div className="relative">
+          {/* Image (left on desktop) */}
+          <div className="relative lg:order-first">
             <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
               <img
                 src="/images/NewProject/tesla.jpeg"

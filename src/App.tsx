@@ -34,10 +34,10 @@ function HomePage() {
       <main>
         <Hero />
         <OctopusSection />
+        <PremiumInstaller />
         <AccreditationsStrip />
         <WhyChooseUs />
         <ResidentialFeature />
-        <PremiumInstaller />
         <ServicesGrid />
         <HowItWorks />
         <CaseStudies />
