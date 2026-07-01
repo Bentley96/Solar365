@@ -27,10 +27,10 @@ export default function Hero() {
             <div>
               <p className="section-label mb-3">Yorkshire's Solar Specialists</p>
 
-              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-navy-900 leading-tight mb-5">
+              <h1 className="text-4xl sm:text-5xl font-extrabold text-navy-900 leading-tight mb-5">
                 Solar Energy &amp;<br />
                 <span className="text-solar-500">Battery Storage</span><br />
-                for Yorkshire Homes
+                <span className="whitespace-nowrap">for Yorkshire Homes</span>
               </h1>
 
               <p className="text-lg text-gray-700 mb-7 max-w-xl leading-relaxed">

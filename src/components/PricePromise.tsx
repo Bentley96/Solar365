@@ -16,10 +16,9 @@ export default function PricePromise() {
             Octopus Energy Trusted Installer
           </p>
           <p className="text-navy-200 text-sm leading-relaxed mt-1">
-            Switch through Solar 365 and get{' '}
+            Switch through Solar 365 for{' '}
             <span className="text-[#ff8fcf] font-bold">£50 off</span> your first bill, plus exclusive
-            smart tariffs and the Smart Export Guarantee — designed to work with your solar &amp;
-            battery storage.
+            smart tariffs built to work with your solar &amp; battery storage.
           </p>
           <a
             href="https://octopus.energy/quote/?affiliate=solar365"
