@@ -42,7 +42,7 @@ export default function FinalCTA() {
         <p className="text-solar-100/70 text-sm">
           Mon–Fri 9am–5pm · Doncaster &amp; Yorkshire · customerservices@solar-365.co.uk
         </p>
-        <p className="text-solar-100/60 text-xs mt-2">
+        <p className="text-white text-xs mt-2">
           No spam. No hard sell. Just honest advice from a team that knows solar inside out.
         </p>
       </div>
