@@ -39,7 +39,7 @@ export default function FinalCTA() {
           </a>
         </div>
 
-        <p className="text-solar-100/70 text-sm">
+        <p className="text-white text-sm">
           Mon–Fri 9am–5pm · Doncaster &amp; Yorkshire · customerservices@solar-365.co.uk
         </p>
         <p className="text-white text-xs mt-2">
