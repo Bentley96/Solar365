@@ -132,22 +132,42 @@ export default function ResidentialSolarPage() {
         {/* Solar Battery Storage */}
         <section className="section-padding bg-navy-900">
           <div className="container-xl">
-            <div className="max-w-3xl mx-auto text-center">
-              <p className="text-solar-400 font-semibold text-sm uppercase tracking-widest mb-3">
-                Store Your Energy
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-                Solar Battery Storage Systems
-              </h2>
-              <p className="text-navy-200 text-lg leading-relaxed mb-8">
-                Solar 365 can install an energy-storage system (home battery) so you can store
-                electricity generated during the day and use it at night or on cloudy days. Battery
-                storage makes the most of solar energy and helps cut energy bills further still.
-              </p>
-              <a href="/#quote" className="btn-primary-lg">
-                Get a Free Quote
-                <ArrowRight className="w-5 h-5" />
-              </a>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p className="text-solar-400 font-semibold text-sm uppercase tracking-widest mb-3">
+                  Store Your Energy
+                </p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+                  Solar Battery Storage Systems
+                </h2>
+                <p className="text-navy-200 text-lg leading-relaxed mb-4">
+                  Solar 365 can install an energy-storage system (home battery) so you can store
+                  electricity generated during the day and use it at night or on cloudy days. Battery
+                  storage makes the most of solar energy and helps cut energy bills further still.
+                </p>
+                <p className="text-navy-200 text-lg leading-relaxed mb-8">
+                  From <span className="text-white font-semibold">Tesla Powerwall</span> to{' '}
+                  <span className="text-white font-semibold">SigEnergy</span> and{' '}
+                  <span className="text-white font-semibold">Fox ESS</span>, we install the leading
+                  battery storage systems on the market.
+                </p>
+                <a href="/#quote" className="btn-primary-lg">
+                  Get a Free Quote
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { src: '/images/NewProject/tesla2.jpeg', alt: 'Tesla Powerwall battery storage' },
+                  { src: '/images/NewProject/sigenergy.jpeg', alt: 'SigEnergy battery storage system' },
+                  { src: '/images/NewProject/fox.jpeg', alt: 'Fox ESS battery storage' },
+                  { src: '/images/NewProject/sigenergy2.jpeg', alt: 'SigEnergy home battery installation' },
+                ].map((img) => (
+                  <div key={img.src} className="rounded-xl overflow-hidden shadow-lg aspect-[4/3]">
+                    <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-full object-cover" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
