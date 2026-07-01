@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 import { useQuote } from './QuoteContext';
 import QuoteForm from './QuoteForm';
 
 export default function QuoteFlyout() {
   const { open, openQuote, closeQuote } = useQuote();
+  const panelRef = useRef<HTMLDivElement>(null);
 
   // Open the flyout whenever a link points at #quote (keeps every existing
   // "Get a Free Quote" / "/#quote" CTA across the site working).
@@ -26,47 +27,41 @@ export default function QuoteFlyout() {
     return () => window.removeEventListener('keydown', onKey);
   }, [closeQuote]);
 
-  // Lock body scroll while open.
+  // Close when clicking outside the panel (no dimmed overlay, page stays usable).
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+        closeQuote();
+      }
     };
-  }, [open]);
+    document.addEventListener('mousedown', onDown);
+    return () => document.removeEventListener('mousedown', onDown);
+  }, [open, closeQuote]);
 
   return (
-    <>
-      {/* Overlay — sits below the header (z-50) so the flyout appears from behind it */}
-      <div
-        className={`fixed inset-0 z-40 bg-navy-950/60 backdrop-blur-sm transition-opacity duration-300 ${
-          open ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
-        onClick={closeQuote}
-        aria-hidden={!open}
-      />
-
-      {/* Flyout panel — slides in from the right */}
-      <aside
-        className={`fixed top-0 right-0 z-40 h-full w-full max-w-md bg-gray-50 shadow-2xl overflow-y-auto transition-transform duration-300 ease-out ${
-          open ? 'translate-x-0' : 'translate-x-full'
-        }`}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Request your free quote"
-      >
-        <div className="pt-28 px-5 pb-8">
-          <div className="flex justify-end mb-3">
-            <button
-              onClick={closeQuote}
-              aria-label="Close quote form"
-              className="w-9 h-9 flex items-center justify-center rounded-full bg-white shadow border border-gray-200 text-navy-800 hover:text-solar-600 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-          <QuoteForm />
-        </div>
-      </aside>
-    </>
+    <div
+      ref={panelRef}
+      className={`fixed right-3 sm:right-6 top-[92px] z-40 w-[calc(100%-1.5rem)] sm:w-full max-w-md origin-top transition-all duration-300 ease-out ${
+        open
+          ? 'opacity-100 translate-y-0 scale-100'
+          : 'opacity-0 -translate-y-10 scale-95 pointer-events-none'
+      }`}
+      role="dialog"
+      aria-modal="false"
+      aria-label="Request your free quote"
+      aria-hidden={!open}
+    >
+      <div className="relative max-h-[calc(100vh-108px)] overflow-y-auto rounded-2xl">
+        <button
+          onClick={closeQuote}
+          aria-label="Close quote form"
+          className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white/90 shadow border border-gray-200 text-navy-800 hover:text-solar-600 transition-colors"
+        >
+          <X className="w-4 h-4" />
+        </button>
+        <QuoteForm />
+      </div>
+    </div>
   );
 }
