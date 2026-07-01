@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Phone, ArrowRight, CheckCircle, Loader2, ShieldCheck, Star, Zap, Award } from 'lucide-react';
-import { submitQuoteRequest } from '../lib/supabase';
+import { Phone, ArrowRight, Play, ShieldCheck, Star, Zap, Award } from 'lucide-react';
+import { useQuote } from './QuoteContext';
 
 const trustPills = [
   { icon: ShieldCheck, label: 'MCS Accredited' },
@@ -11,41 +11,9 @@ const trustPills = [
   { icon: Award, label: 'Small Business of the Year Finalist' },
 ];
 
-const installationTypes = [
-  'Residential Solar',
-  'Commercial Solar',
-  'Air Source Heat Pump',
-  'Battery Storage',
-  'ECO4 Funding',
-  'Residential Roofing',
-  'Not Sure — Advise Me',
-];
-
 export default function Hero() {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', postcode: '', installation_type: '', message: '' });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.installation_type) return;
-    setStatus('loading');
-    try {
-      await submitQuoteRequest({
-        name: form.name,
-        phone: form.phone,
-        email: form.email,
-        postcode: form.postcode,
-        installation_type: form.installation_type,
-        message: form.message || undefined,
-      });
-      setStatus('success');
-    } catch {
-      setStatus('error');
-    }
-  };
-
-  const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
-    setForm((p) => ({ ...p, [field]: e.target.value }));
+  const { openQuote } = useQuote();
+  const [playing, setPlaying] = useState(false);
 
   return (
     <section id="quote">
@@ -94,10 +62,10 @@ export default function Hero() {
 
               {/* CTAs */}
               <div className="flex flex-wrap gap-4">
-                <a href="#quote" className="btn-primary-lg">
+                <button onClick={openQuote} className="btn-primary-lg">
                   Get a Free Quote
                   <ArrowRight className="w-5 h-5" />
-                </a>
+                </button>
                 <a href="tel:01302456613" className="btn-outline-navy text-lg px-8 py-4">
                   <Phone className="w-5 h-5" />
                   01302 456 613
@@ -109,132 +77,59 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* Right — Lead form */}
-            <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-              <div className="bg-navy-900 px-6 py-4">
-                <h2 className="text-white font-bold text-lg">Request Your Free Quote</h2>
-                <p className="text-navy-300 text-sm mt-0.5">One of our specialists will call you within 1 business day</p>
+            {/* Right — Video */}
+            <div>
+              <div className="mb-4">
+                <p className="section-label mb-2">See How We Work</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-navy-900">
+                  Watch a Real Yorkshire Installation
+                </h2>
+                <p className="text-gray-600 text-base mt-2 max-w-md">
+                  Jules walks you through a full solar installation from first fix to commissioning —
+                  the Solar 365 way.
+                </p>
               </div>
 
-              {status === 'success' ? (
-                <div className="p-8 text-center">
-                  <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-navy-900 mb-2">Quote Request Sent!</h3>
-                  <p className="text-gray-600 mb-6">
-                    Thanks! One of our solar specialists will be in touch within 1 business day.
-                  </p>
-                  <a href="tel:01302456613" className="btn-primary-lg w-full justify-center">
-                    <Phone className="w-5 h-5" />
-                    Call Us Now: 01302 456 613
-                  </a>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="p-6 space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-semibold text-navy-800 mb-1">Full Name *</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="John Smith"
-                        value={form.name}
-                        onChange={set('name')}
-                        className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-navy-900 placeholder-gray-400 bg-gray-50"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-navy-800 mb-1">Phone *</label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="07xxx xxxxxx"
-                        value={form.phone}
-                        onChange={set('phone')}
-                        className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-navy-900 placeholder-gray-400 bg-gray-50"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-navy-800 mb-1">Email Address *</label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="you@example.com"
-                      value={form.email}
-                      onChange={set('email')}
-                      className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-navy-900 placeholder-gray-400 bg-gray-50"
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+                {!playing ? (
+                  <div className="relative aspect-video cursor-pointer group" onClick={() => setPlaying(true)}>
+                    <img
+                      src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop"
+                      alt="Solar 365 installation walkthrough"
+                      loading="lazy"
+                      className="w-full h-full object-cover"
                     />
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-semibold text-navy-800 mb-1">Postcode *</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="DN1 1AA"
-                        value={form.postcode}
-                        onChange={set('postcode')}
-                        className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-navy-900 placeholder-gray-400 bg-gray-50"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-navy-800 mb-1">I'm interested in *</label>
-                      <select
-                        required
-                        value={form.installation_type}
-                        onChange={set('installation_type')}
-                        className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-navy-900 bg-gray-50"
-                      >
-                        <option value="">Select type...</option>
-                        {installationTypes.map((t) => (
-                          <option key={t} value={t}>{t}</option>
-                        ))}
-                      </select>
+                    <div className="absolute inset-0 bg-navy-900/50 flex flex-col items-center justify-center gap-4 group-hover:bg-navy-900/40 transition-colors">
+                      <div className="w-20 h-20 rounded-full bg-solar-500 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                        <Play className="w-9 h-9 text-white fill-white ml-1" />
+                      </div>
+                      <p className="text-white font-semibold text-lg">Watch Jules on a Live Install</p>
                     </div>
                   </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-navy-800 mb-1">Message (optional)</label>
-                    <textarea
-                      rows={2}
-                      placeholder="Anything else you'd like us to know?"
-                      value={form.message}
-                      onChange={set('message')}
-                      className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-navy-900 placeholder-gray-400 bg-gray-50 resize-none"
-                    />
+                ) : (
+                  <div className="aspect-video bg-gray-100 flex items-center justify-center">
+                    <div className="text-center text-gray-400 p-8">
+                      <Play className="w-12 h-12 mx-auto mb-3 text-solar-400" />
+                      <p className="font-semibold text-navy-900 mb-1">Video Coming Soon</p>
+                      <p className="text-sm">We're uploading Jules's installation walkthrough shortly.</p>
+                      <p className="text-sm mt-2">
+                        In the meantime, call us on{' '}
+                        <a href="tel:01302456613" className="text-solar-500 font-semibold">01302 456 613</a>
+                      </p>
+                    </div>
                   </div>
+                )}
+              </div>
 
-                  {status === 'error' && (
-                    <p className="text-red-600 text-sm bg-red-50 rounded-lg px-3 py-2">
-                      Something went wrong. Please call us on 01302 456 613.
-                    </p>
-                  )}
-
-                  <button
-                    type="submit"
-                    disabled={status === 'loading'}
-                    className="btn-primary w-full justify-center py-3.5 text-base disabled:opacity-70"
-                  >
-                    {status === 'loading' ? (
-                      <>
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Request Free Quote
-                        <ArrowRight className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
-
-                  <p className="text-center text-xs text-gray-400">
-                    No spam. We'll only contact you about your enquiry.
-                  </p>
-                </form>
-              )}
+              <div className="mt-5">
+                <button onClick={openQuote} className="btn-primary-lg inline-flex">
+                  Book Your Free Survey
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+                <p className="text-gray-500 text-sm mt-3">
+                  No obligation. Free energy assessment at your property.
+                </p>
+              </div>
             </div>
           </div>
         </div>

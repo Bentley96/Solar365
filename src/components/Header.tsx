@@ -4,6 +4,7 @@ import {
   Phone, MapPin, Clock, Facebook, Instagram, Linkedin,
   ChevronDown, Menu, X, Megaphone
 } from 'lucide-react';
+import { useQuote } from './QuoteContext';
 
 const services = [
   { label: 'Residential Solar', to: '/residential-solar' },
@@ -29,6 +30,7 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { openQuote } = useQuote();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -138,9 +140,9 @@ export default function Header() {
           </div>
 
           {/* CTA */}
-          <a href="/#quote" className="hidden lg:inline-flex btn-primary text-sm whitespace-nowrap">
+          <button onClick={openQuote} className="hidden lg:inline-flex btn-primary text-sm whitespace-nowrap">
             Get a Free Quote
-          </a>
+          </button>
 
           {/* Mobile hamburger */}
           <button
@@ -193,13 +195,12 @@ export default function Header() {
                 )
               )}
               <div className="pt-3">
-                <a
-                  href="/#quote"
-                  onClick={() => setMobileOpen(false)}
+                <button
+                  onClick={() => { setMobileOpen(false); openQuote(); }}
                   className="btn-primary w-full justify-center"
                 >
                   Get a Free Quote
-                </a>
+                </button>
               </div>
             </div>
           </div>
