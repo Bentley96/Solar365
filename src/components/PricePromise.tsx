@@ -2,7 +2,7 @@ import { Zap, PoundSterling, ArrowRight } from 'lucide-react';
 
 export default function PricePromise() {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-md p-5">
+    <div className="bg-navy-900 rounded-xl border border-navy-700 shadow-md p-5">
       {/* Octopus */}
       <div className="flex items-start gap-4">
         <img
@@ -11,13 +11,13 @@ export default function PricePromise() {
           className="h-11 w-auto object-contain flex-shrink-0"
         />
         <div>
-          <p className="flex items-center gap-2 font-bold text-navy-900 text-base">
-            <Zap className="w-4 h-4 text-[#f3469b] flex-shrink-0" />
+          <p className="flex items-center gap-2 font-bold text-white text-base">
+            <Zap className="w-4 h-4 text-[#ff8fcf] flex-shrink-0" />
             Octopus Energy Trusted Installer
           </p>
-          <p className="text-gray-600 text-sm leading-relaxed mt-1">
+          <p className="text-navy-200 text-sm leading-relaxed mt-1">
             Switch through Solar 365 and get{' '}
-            <span className="text-[#f3469b] font-bold">£50 off</span> your first bill, plus exclusive
+            <span className="text-[#ff8fcf] font-bold">£50 off</span> your first bill, plus exclusive
             smart tariffs and the Smart Export Guarantee — designed to work with your solar &amp;
             battery storage.
           </p>
@@ -25,7 +25,7 @@ export default function PricePromise() {
             href="https://octopus.energy/quote/?affiliate=solar365"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-[#c4307a] hover:text-[#f3469b] font-semibold text-sm mt-2 transition-colors"
+            className="inline-flex items-center gap-1.5 text-[#ff8fcf] hover:text-white font-semibold text-sm mt-2 transition-colors"
           >
             Switch &amp; Save £50
             <ArrowRight className="w-4 h-4" />
@@ -33,16 +33,16 @@ export default function PricePromise() {
         </div>
       </div>
 
-      <div className="h-px w-full bg-gray-200 my-4" />
+      <div className="h-px w-full bg-navy-700 my-4" />
 
       {/* Price promise */}
       <div className="flex items-center gap-4">
-        <div className="w-11 h-11 rounded-xl bg-solar-50 flex items-center justify-center flex-shrink-0">
-          <PoundSterling className="w-5 h-5 text-solar-500" />
+        <div className="w-11 h-11 rounded-xl bg-solar-500/20 flex items-center justify-center flex-shrink-0">
+          <PoundSterling className="w-5 h-5 text-solar-400" />
         </div>
         <div>
-          <p className="font-bold text-navy-900 text-base">We won't be beaten on price</p>
-          <p className="text-gray-600 text-sm leading-relaxed mt-0.5">
+          <p className="font-bold text-white text-base">We won't be beaten on price</p>
+          <p className="text-navy-200 text-sm leading-relaxed mt-0.5">
             Found a cheaper like-for-like MCS quote? We'll match it.
           </p>
         </div>

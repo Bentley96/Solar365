@@ -40,25 +40,9 @@ export default function Hero() {
               </p>
 
               {/* Octopus + price promise */}
-              <div className="mb-8 max-w-xl">
+              <div className="max-w-xl">
                 <PricePromise />
               </div>
-
-              {/* CTAs */}
-              <div className="flex flex-wrap gap-4">
-                <button onClick={openQuote} className="btn-primary-lg">
-                  Get a Free Quote
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-                <a href="tel:01302456613" className="btn-outline-navy text-lg px-8 py-4">
-                  <Phone className="w-5 h-5" />
-                  01302 456 613
-                </a>
-              </div>
-
-              <p className="mt-5 text-gray-500 text-sm">
-                FREE initial energy survey. No obligation. No hard sell. Just honest advice.
-              </p>
             </div>
 
             {/* Right — Video */}
@@ -106,12 +90,18 @@ export default function Hero() {
               </div>
 
               <div className="mt-5">
-                <button onClick={openQuote} className="btn-primary-lg inline-flex">
-                  Book Your Free Survey
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-                <p className="text-gray-500 text-sm mt-3">
-                  No obligation. Free energy assessment at your property.
+                <div className="flex flex-wrap gap-4">
+                  <button onClick={openQuote} className="btn-primary-lg">
+                    Get a Free Quote
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                  <a href="tel:01302456613" className="btn-outline-navy text-lg px-8 py-4">
+                    <Phone className="w-5 h-5" />
+                    01302 456 613
+                  </a>
+                </div>
+                <p className="mt-4 text-gray-500 text-sm">
+                  FREE initial energy survey. No obligation. No hard sell. Just honest advice.
                 </p>
               </div>
             </div>
