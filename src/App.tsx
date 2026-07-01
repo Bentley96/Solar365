@@ -6,6 +6,7 @@ import AccreditationsStrip from './components/AccreditationsStrip';
 import OctopusSection from './components/OctopusSection';
 import WhyChooseUs from './components/WhyChooseUs';
 import ResidentialFeature from './components/ResidentialFeature';
+import PremiumInstaller from './components/PremiumInstaller';
 import ServicesGrid from './components/ServicesGrid';
 import HowItWorks from './components/HowItWorks';
 import CaseStudies from './components/CaseStudies';
@@ -36,6 +37,7 @@ function HomePage() {
         <AccreditationsStrip />
         <WhyChooseUs />
         <ResidentialFeature />
+        <PremiumInstaller />
         <ServicesGrid />
         <HowItWorks />
         <CaseStudies />
