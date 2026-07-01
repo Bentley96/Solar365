@@ -2,7 +2,6 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import PricePromise from './components/PricePromise';
 import AccreditationsStrip from './components/AccreditationsStrip';
 import OctopusSection from './components/OctopusSection';
 import WhyChooseUs from './components/WhyChooseUs';
@@ -33,7 +32,6 @@ function HomePage() {
     <>
       <Header />
       <main>
-        <PricePromise />
         <Hero />
         <OctopusSection />
         <AccreditationsStrip />

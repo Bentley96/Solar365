@@ -1,15 +1,7 @@
 import { useState } from 'react';
-import { Phone, ArrowRight, Play, ShieldCheck, Star, Zap, Award } from 'lucide-react';
+import { Phone, ArrowRight, Play } from 'lucide-react';
 import { useQuote } from './QuoteContext';
-
-const trustPills = [
-  { icon: ShieldCheck, label: 'MCS Accredited' },
-  { icon: Zap, label: 'Octopus Trusted Partner' },
-  { icon: Award, label: 'Tesla Certified' },
-  { icon: ShieldCheck, label: 'HIES Registered' },
-  { icon: Star, label: 'Cosy HP Approved' },
-  { icon: Award, label: 'Small Business of the Year Finalist' },
-];
+import PricePromise from './PricePromise';
 
 export default function Hero() {
   const { openQuote } = useQuote();
@@ -21,6 +13,7 @@ export default function Hero() {
       <div
         className="relative"
         style={{
+          paddingTop: '112px',
           backgroundImage: 'url(/images/homepage/commercial-solar-panels.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center 40%',
@@ -46,17 +39,9 @@ export default function Hero() {
                 The only Cosy Heat Pump accredited installer based in Doncaster.
               </p>
 
-              {/* Trust pills */}
-              <div className="flex flex-wrap gap-2 mb-8">
-                {trustPills.map(({ icon: Icon, label }) => (
-                  <span
-                    key={label}
-                    className="inline-flex items-center gap-1.5 bg-white border border-gray-200 shadow-sm text-navy-800 text-sm font-medium px-3 py-1.5 rounded-full"
-                  >
-                    <Icon className="w-3.5 h-3.5 text-solar-500 flex-shrink-0" />
-                    {label}
-                  </span>
-                ))}
+              {/* Octopus + price promise */}
+              <div className="mb-8 max-w-xl">
+                <PricePromise />
               </div>
 
               {/* CTAs */}
