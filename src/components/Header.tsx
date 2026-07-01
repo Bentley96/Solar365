@@ -30,7 +30,7 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { openQuote } = useQuote();
+  const { openQuote, toggleQuote } = useQuote();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -140,7 +140,7 @@ export default function Header() {
           </div>
 
           {/* CTA */}
-          <button onClick={openQuote} className="hidden lg:inline-flex btn-primary text-sm whitespace-nowrap">
+          <button data-quote-toggle onClick={toggleQuote} className="hidden lg:inline-flex btn-primary text-sm whitespace-nowrap">
             Get a Free Quote
           </button>
 

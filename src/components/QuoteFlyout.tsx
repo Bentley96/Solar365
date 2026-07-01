@@ -28,10 +28,13 @@ export default function QuoteFlyout() {
   }, [closeQuote]);
 
   // Close when clicking outside the panel (no dimmed overlay, page stays usable).
+  // Ignore the toggle button so it can close the flyout itself.
   useEffect(() => {
     if (!open) return;
     const onDown = (e: MouseEvent) => {
-      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+      const target = e.target as Element;
+      if (target.closest('[data-quote-toggle]')) return;
+      if (panelRef.current && !panelRef.current.contains(target as Node)) {
         closeQuote();
       }
     };
@@ -40,27 +43,33 @@ export default function QuoteFlyout() {
   }, [open, closeQuote]);
 
   return (
-    <div
-      ref={panelRef}
-      className={`fixed right-3 sm:right-6 top-[92px] z-40 w-[calc(100%-1.5rem)] sm:w-full max-w-md origin-top transition-all duration-300 ease-out ${
-        open
-          ? 'opacity-100 translate-y-0 scale-100'
-          : 'opacity-0 -translate-y-10 scale-95 pointer-events-none'
-      }`}
-      role="dialog"
-      aria-modal="false"
-      aria-label="Request your free quote"
-      aria-hidden={!open}
-    >
-      <div className="relative max-h-[calc(100vh-108px)] overflow-y-auto rounded-2xl">
-        <button
-          onClick={closeQuote}
-          aria-label="Close quote form"
-          className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white/90 shadow border border-gray-200 text-navy-800 hover:text-solar-600 transition-colors"
+    // Full-width positioner that mirrors the header container so the panel's
+    // right edge lines up with the "Get a Free Quote" button.
+    <div className="fixed inset-x-0 top-[92px] z-40 pointer-events-none">
+      <div className="container-xl px-4 sm:px-6 lg:px-8 flex justify-end">
+        <div
+          ref={panelRef}
+          className={`pointer-events-auto w-full max-w-md origin-top transition-all duration-300 ease-out ${
+            open
+              ? 'opacity-100 translate-y-0 scale-100'
+              : 'opacity-0 -translate-y-10 scale-95 !pointer-events-none'
+          }`}
+          role="dialog"
+          aria-modal="false"
+          aria-label="Request your free quote"
+          aria-hidden={!open}
         >
-          <X className="w-4 h-4" />
-        </button>
-        <QuoteForm />
+          <div className="relative max-h-[calc(100vh-108px)] overflow-y-auto rounded-2xl pt-3">
+            <button
+              onClick={closeQuote}
+              aria-label="Close quote form"
+              className="absolute top-6 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white/90 shadow border border-gray-200 text-navy-800 hover:text-solar-600 transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            <QuoteForm />
+          </div>
+        </div>
       </div>
     </div>
   );
