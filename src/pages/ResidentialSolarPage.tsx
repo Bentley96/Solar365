@@ -20,13 +20,13 @@ export default function ResidentialSolarPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="bg-navy-900 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <section className="bg-[#68c0b8] pt-32 pb-20 px-4 sm:px-6 lg:px-8">
           <div className="container-xl text-center">
-            <p className="section-label mb-3">Yorkshire's Solar Specialists</p>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-5 leading-tight">
+            <p className="text-navy-900/80 font-semibold text-sm uppercase tracking-widest mb-3">Yorkshire's Solar Specialists</p>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-navy-900 mb-5 leading-tight">
               Residential Solar Panels
             </h1>
-            <p className="text-lg text-navy-200 max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-navy-800 max-w-2xl mx-auto mb-8">
               Having solar panels installed on your property is a great way to produce electricity,
               reducing your bills and saving you money.
             </p>

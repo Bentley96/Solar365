@@ -16,16 +16,16 @@ export default function AirSourceHeatPumpsPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="bg-navy-900 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <section className="bg-[#68c0b8] pt-32 pb-20 px-4 sm:px-6 lg:px-8">
           <div className="container-xl text-center">
-            <div className="inline-flex items-center gap-2 bg-solar-500/20 border border-solar-400/40 text-solar-300 text-sm font-semibold px-4 py-2 rounded-full mb-5">
+            <div className="inline-flex items-center gap-2 bg-navy-900/10 border border-navy-900/20 text-navy-900 text-sm font-semibold px-4 py-2 rounded-full mb-5">
               Installation Grants Available
             </div>
-            <p className="section-label mb-3">Eco-Conscious Heating</p>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-5 leading-tight">
+            <p className="text-navy-900/80 font-semibold text-sm uppercase tracking-widest mb-3">Eco-Conscious Heating</p>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-navy-900 mb-5 leading-tight">
               Air Source Heat Pumps
             </h1>
-            <p className="text-lg text-navy-200 max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-navy-800 max-w-2xl mx-auto mb-8">
               Transform your home's heating systems with an air source heat pump!
             </p>
             <a href="/#quote" className="btn-primary-lg">

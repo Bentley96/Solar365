@@ -75,13 +75,13 @@ export default function FaqsPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="bg-navy-900 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <section className="bg-[#68c0b8] pt-32 pb-20 px-4 sm:px-6 lg:px-8">
           <div className="container-xl text-center">
-            <p className="section-label mb-3">Got Questions?</p>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-5 leading-tight">
+            <p className="text-navy-900/80 font-semibold text-sm uppercase tracking-widest mb-3">Got Questions?</p>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-navy-900 mb-5 leading-tight">
               Frequently Asked Questions
             </h1>
-            <p className="text-lg text-navy-200 max-w-xl mx-auto">
+            <p className="text-lg text-navy-800 max-w-xl mx-auto">
               Everything you need to know about solar panels, heat pumps, and working with Solar 365.
             </p>
           </div>

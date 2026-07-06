@@ -49,13 +49,13 @@ export default function GalleryPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="bg-navy-900 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <section className="bg-[#68c0b8] pt-32 pb-20 px-4 sm:px-6 lg:px-8">
           <div className="container-xl text-center">
-            <p className="section-label mb-3">Our Installations</p>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-5 leading-tight">
+            <p className="text-navy-900/80 font-semibold text-sm uppercase tracking-widest mb-3">Our Installations</p>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-navy-900 mb-5 leading-tight">
               Recent Solar Installations
             </h1>
-            <p className="text-lg text-navy-200 max-w-2xl mx-auto">
+            <p className="text-lg text-navy-800 max-w-2xl mx-auto">
               Having Solar Panels Installed On Your Property Is A Great Way To Produce Electricity,
               Reducing Your Bills &amp; Saving You Money.
             </p>
