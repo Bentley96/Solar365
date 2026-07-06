@@ -7,6 +7,7 @@ import OctopusSection from './components/OctopusSection';
 import WhyChooseUs from './components/WhyChooseUs';
 import ResidentialFeature from './components/ResidentialFeature';
 import PremiumInstaller from './components/PremiumInstaller';
+import OctopusHeatPumps from './components/OctopusHeatPumps';
 import ServicesGrid from './components/ServicesGrid';
 import HowItWorks from './components/HowItWorks';
 import CaseStudies from './components/CaseStudies';
@@ -35,6 +36,7 @@ function HomePage() {
         <Hero />
         <OctopusSection />
         <PremiumInstaller />
+        <OctopusHeatPumps />
         <AccreditationsStrip />
         <WhyChooseUs />
         <ResidentialFeature />
