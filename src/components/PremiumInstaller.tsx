@@ -3,16 +3,16 @@ import { useQuote } from './QuoteContext';
 
 const points = [
   {
-    icon: Award,
-    title: 'Premium Solar Installer',
-    description:
-      'Solar 365 is a premium solar installer — using only top-tier panels, inverters and battery systems, installed to the highest MCS-accredited standards. When you choose us, you get premium products fitted by a premium team, backed by extensive warranties.',
-  },
-  {
     icon: BadgeCheck,
     title: 'Premium SIG Energy Installer',
     description:
-      'As an approved Premium SIG Energy Installer, we\'ve been vetted and trusted to install SIG Energy\'s premium range of solar and renewable technology. This partnership gives our customers access to leading products, extended manufacturer warranties and complete peace of mind.',
+      'As an approved Premium SIG Energy Installer, we\'ve been vetted and trusted to install SIG Energy\'s premium range of solar and battery technology — giving our customers access to leading products, extended manufacturer warranties and complete peace of mind.',
+  },
+  {
+    icon: Award,
+    title: 'Premium Tesla Installer',
+    description:
+      'As a certified Tesla Installer, we design and fit Tesla Powerwall battery storage to the highest standards — so you can store the energy your panels generate and power your home around the clock, backed by Tesla\'s market-leading warranty.',
   },
 ];
 
@@ -30,8 +30,8 @@ export default function PremiumInstaller() {
             </div>
 
             <h2 className="section-heading mb-4">
-              Yorkshire's Premium Solar &amp;{' '}
-              <span className="text-solar-500">SIG Energy Installer</span>
+              Yorkshire's Premium Solar and{' '}
+              <span className="text-solar-500">Battery Installer</span>
             </h2>
 
             <p className="text-gray-600 mb-8 text-base leading-relaxed max-w-xl">
