@@ -17,6 +17,7 @@ const services = [
 const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Services', to: '/', dropdown: services },
+  { label: 'Supporting Our Community', to: '/supporting-our-community' },
   { label: 'Case Studies', to: '/case-studies' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'FAQs', to: '/faqs' },

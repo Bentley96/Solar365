@@ -22,6 +22,7 @@ const CommercialSolarPage = lazy(() => import('./pages/CommercialSolarPage'));
 const AirSourceHeatPumpsPage = lazy(() => import('./pages/AirSourceHeatPumpsPage'));
 const SolarMaintenancePage = lazy(() => import('./pages/SolarMaintenancePage'));
 const ResidentialRoofingPage = lazy(() => import('./pages/ResidentialRoofingPage'));
+const SupportingCommunityPage = lazy(() => import('./pages/SupportingCommunityPage'));
 const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'));
 const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
@@ -68,6 +69,7 @@ export default function App() {
         <Route path="/air-source-heat-pumps" element={<AirSourceHeatPumpsPage />} />
         <Route path="/solar-maintenance" element={<SolarMaintenancePage />} />
         <Route path="/residential-roofing" element={<ResidentialRoofingPage />} />
+        <Route path="/supporting-our-community" element={<SupportingCommunityPage />} />
         <Route path="/case-studies" element={<CaseStudiesPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/contact" element={<ContactPage />} />
