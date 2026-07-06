@@ -20,7 +20,6 @@ import ScrollToTop from './components/ScrollToTop';
 const ResidentialSolarPage = lazy(() => import('./pages/ResidentialSolarPage'));
 const CommercialSolarPage = lazy(() => import('./pages/CommercialSolarPage'));
 const AirSourceHeatPumpsPage = lazy(() => import('./pages/AirSourceHeatPumpsPage'));
-const Eco4FundingPage = lazy(() => import('./pages/Eco4FundingPage'));
 const SolarMaintenancePage = lazy(() => import('./pages/SolarMaintenancePage'));
 const ResidentialRoofingPage = lazy(() => import('./pages/ResidentialRoofingPage'));
 const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'));
@@ -67,7 +66,6 @@ export default function App() {
         <Route path="/residential-solar" element={<ResidentialSolarPage />} />
         <Route path="/commercial-solar" element={<CommercialSolarPage />} />
         <Route path="/air-source-heat-pumps" element={<AirSourceHeatPumpsPage />} />
-        <Route path="/eco4-funding" element={<Eco4FundingPage />} />
         <Route path="/solar-maintenance" element={<SolarMaintenancePage />} />
         <Route path="/residential-roofing" element={<ResidentialRoofingPage />} />
         <Route path="/case-studies" element={<CaseStudiesPage />} />

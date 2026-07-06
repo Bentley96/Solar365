@@ -10,7 +10,6 @@ const services = [
   { label: 'Residential Solar', to: '/residential-solar' },
   { label: 'Commercial Solar', to: '/commercial-solar' },
   { label: 'Air Source Heat Pumps', to: '/air-source-heat-pumps' },
-  { label: 'ECO4 Funding', to: '/eco4-funding' },
   { label: 'Solar Maintenance', to: '/solar-maintenance' },
   { label: 'Residential Roofing', to: '/residential-roofing' },
 ];
