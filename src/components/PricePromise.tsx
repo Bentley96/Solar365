@@ -2,13 +2,13 @@ import { Zap, PoundSterling, ArrowRight } from 'lucide-react';
 
 export default function PricePromise() {
   return (
-    <div className="bg-navy-900 rounded-xl border border-navy-700 shadow-md p-5">
+    <div className="relative bg-navy-900 rounded-xl border border-navy-700 shadow-md p-5">
       {/* Octopus */}
       <div className="flex items-start gap-4">
         <img
           src="/images/Latest/OctopusFinalist.png"
-          alt="Octopus Energy Trusted Installer Partner"
-          className="h-11 w-auto object-contain flex-shrink-0"
+          alt="Octopus Energy Small Business of the Year Finalist"
+          className="h-20 w-auto object-contain flex-shrink-0 -ml-9 -my-3 drop-shadow-lg"
         />
         <div>
           <p className="flex items-center gap-2 font-bold text-white text-base">
