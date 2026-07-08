@@ -91,7 +91,7 @@ export default function Header() {
 
       {/* Main nav — white */}
       <nav className={`bg-white border-b border-gray-200 transition-all duration-300 ${scrolled ? 'py-2' : 'py-3'}`}>
-        <div className="container-xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6">
+        <div className="container-xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <img
@@ -102,13 +102,13 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden xl:flex items-center gap-0.5">
             {navLinks.map((link) =>
               link.dropdown ? (
                 <div key={link.label} className="relative" ref={dropdownRef}>
                   <button
                     onClick={() => setServicesOpen((v) => !v)}
-                    className="flex items-center gap-1 text-navy-800 hover:text-solar-600 font-semibold px-4 py-2 rounded-md transition-colors text-sm"
+                    className="flex items-center gap-1 whitespace-nowrap text-navy-800 hover:text-solar-600 font-semibold px-2.5 py-2 rounded-md transition-colors text-sm"
                   >
                     {link.label}
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
@@ -132,7 +132,7 @@ export default function Header() {
                 <Link
                   key={link.label}
                   to={link.to}
-                  className="text-navy-800 hover:text-solar-600 font-semibold px-4 py-2 rounded-md transition-colors text-sm"
+                  className="whitespace-nowrap text-navy-800 hover:text-solar-600 font-semibold px-2.5 py-2 rounded-md transition-colors text-sm"
                 >
                   {link.label}
                 </Link>
@@ -141,14 +141,14 @@ export default function Header() {
           </div>
 
           {/* CTA */}
-          <button data-quote-toggle onClick={toggleQuote} className="hidden lg:inline-flex btn-primary text-sm whitespace-nowrap">
+          <button data-quote-toggle onClick={toggleQuote} className="hidden xl:inline-flex btn-primary text-sm whitespace-nowrap">
             Get a Free Quote
           </button>
 
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen((v) => !v)}
-            className="lg:hidden text-navy-900 p-2 rounded-md hover:bg-gray-100 transition-colors"
+            className="xl:hidden text-navy-900 p-2 rounded-md hover:bg-gray-100 transition-colors"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -157,7 +157,7 @@ export default function Header() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100">
+          <div className="xl:hidden bg-white border-t border-gray-100">
             <div className="px-4 py-3 space-y-1">
               {navLinks.map((link) =>
                 link.dropdown ? (
