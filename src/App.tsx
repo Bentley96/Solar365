@@ -2,21 +2,15 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import AccreditationsStrip from './components/AccreditationsStrip';
 import OctopusSection from './components/OctopusSection';
-import WhyChooseUs from './components/WhyChooseUs';
-import ResidentialFeature from './components/ResidentialFeature';
 import PremiumInstaller from './components/PremiumInstaller';
 import OctopusHeatPumps from './components/OctopusHeatPumps';
-import ServicesGrid from './components/ServicesGrid';
-import HowItWorks from './components/HowItWorks';
-import CaseStudies from './components/CaseStudies';
 import Testimonials from './components/Testimonials';
-import FinanceBanner from './components/FinanceBanner';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
+const AboutSolarPage = lazy(() => import('./pages/AboutSolarPage'));
 const ResidentialSolarPage = lazy(() => import('./pages/ResidentialSolarPage'));
 const CommercialSolarPage = lazy(() => import('./pages/CommercialSolarPage'));
 const AirSourceHeatPumpsPage = lazy(() => import('./pages/AirSourceHeatPumpsPage'));
@@ -37,14 +31,7 @@ function HomePage() {
         <OctopusSection />
         <PremiumInstaller />
         <OctopusHeatPumps />
-        <AccreditationsStrip />
-        <WhyChooseUs />
-        <ResidentialFeature />
-        <ServicesGrid />
-        <HowItWorks />
-        <CaseStudies />
         <Testimonials />
-        <FinanceBanner />
         <FinalCTA />
       </main>
       <Footer />
@@ -64,6 +51,7 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about-solar" element={<AboutSolarPage />} />
         <Route path="/residential-solar" element={<ResidentialSolarPage />} />
         <Route path="/commercial-solar" element={<CommercialSolarPage />} />
         <Route path="/air-source-heat-pumps" element={<AirSourceHeatPumpsPage />} />

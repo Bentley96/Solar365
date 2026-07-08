@@ -16,6 +16,7 @@ const services = [
 
 const navLinks = [
   { label: 'Home', to: '/' },
+  { label: 'About Solar', to: '/about-solar' },
   { label: 'Services', to: '/', dropdown: services },
   { label: 'Supporting Our Community', to: '/supporting-our-community' },
   { label: 'Case Studies', to: '/case-studies' },
