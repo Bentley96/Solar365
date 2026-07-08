@@ -70,7 +70,7 @@ export default function OctopusHeatPumps() {
           <div className="relative">
             <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
               <img
-                src="/images/AirSourceHeatPumps/air-source-heat-grants.jpg"
+                src="/images/Latest/cosy.png"
                 alt="Octopus Cosy air source heat pump installation in Doncaster"
                 loading="lazy"
                 className="w-full h-full object-cover"

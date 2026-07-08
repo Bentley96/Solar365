@@ -6,7 +6,7 @@ export default function PricePromise() {
       {/* Octopus */}
       <div className="flex items-start gap-4">
         <img
-          src="/images/Rectangle-1024x356.png"
+          src="/images/Latest/OctopusFinalist.png"
           alt="Octopus Energy Trusted Installer Partner"
           className="h-11 w-auto object-contain flex-shrink-0"
         />

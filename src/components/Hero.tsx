@@ -61,11 +61,12 @@ export default function Hero() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
                 {!playing ? (
                   <div className="relative aspect-video cursor-pointer group" onClick={() => setPlaying(true)}>
-                    <img
-                      src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop"
-                      alt="Solar 365 installation walkthrough"
-                      loading="lazy"
-                      className="w-full h-full object-cover"
+                    <video
+                      src="/images/Latest/jules-install.mp4"
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-navy-900/50 flex flex-col items-center justify-center gap-4 group-hover:bg-navy-900/40 transition-colors">
                       <div className="w-20 h-20 rounded-full bg-solar-500 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
@@ -75,17 +76,13 @@ export default function Hero() {
                     </div>
                   </div>
                 ) : (
-                  <div className="aspect-video bg-gray-100 flex items-center justify-center">
-                    <div className="text-center text-gray-400 p-8">
-                      <Play className="w-12 h-12 mx-auto mb-3 text-solar-400" />
-                      <p className="font-semibold text-navy-900 mb-1">Video Coming Soon</p>
-                      <p className="text-sm">We're uploading Jules's installation walkthrough shortly.</p>
-                      <p className="text-sm mt-2">
-                        In the meantime, call us on{' '}
-                        <a href="tel:01302456613" className="text-solar-500 font-semibold">01302 456 613</a>
-                      </p>
-                    </div>
-                  </div>
+                  <video
+                    src="/images/Latest/jules-install.mp4"
+                    autoPlay
+                    controls
+                    playsInline
+                    className="w-full aspect-video object-cover object-center bg-navy-950"
+                  />
                 )}
               </div>
 
