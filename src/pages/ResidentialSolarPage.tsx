@@ -58,7 +58,7 @@ export default function ResidentialSolarPage() {
               </div>
               <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                 <img
-                  src="/images/ResidentialSolar/residential-solar-yorkshire.jpg.webp"
+                  src="/images/Gallery/WhatsApp-Image-2022-11-09-at-13.49.33.jpeg"
                   alt="Residential solar panel installation in Yorkshire"
                   loading="lazy"
                   className="w-full h-full object-cover"
