@@ -131,10 +131,10 @@ export default function AirSourceHeatPumpsPage() {
               </div>
               <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                 <img
-                  src="/images/AirSourceHeatPumps/air-source-heat-grants.jpg"
+                  src="/images/Latest/cosy.png"
                   alt="Air source heat pump unit installed outside a home"
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
             </div>
