@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import OctopusSection from './components/OctopusSection';
 import PremiumInstaller from './components/PremiumInstaller';
 import OctopusHeatPumps from './components/OctopusHeatPumps';
+import FinanceOptions from './components/FinanceOptions';
 import Testimonials from './components/Testimonials';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
@@ -31,6 +32,7 @@ function HomePage() {
         <OctopusSection />
         <PremiumInstaller />
         <OctopusHeatPumps />
+        <FinanceOptions />
         <Testimonials />
         <FinalCTA />
       </main>
