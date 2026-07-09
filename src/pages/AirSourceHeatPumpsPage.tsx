@@ -134,7 +134,7 @@ export default function AirSourceHeatPumpsPage() {
                   src="/images/Latest/cosy.png"
                   alt="Air source heat pump unit installed outside a home"
                   loading="lazy"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_35%]"
                 />
               </div>
             </div>

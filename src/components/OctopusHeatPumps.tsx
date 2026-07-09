@@ -73,7 +73,7 @@ export default function OctopusHeatPumps() {
                 src="/images/Latest/cosy.png"
                 alt="Octopus Cosy air source heat pump installation in Doncaster"
                 loading="lazy"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-[center_35%]"
               />
             </div>
           </div>
