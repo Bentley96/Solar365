@@ -4,10 +4,8 @@ import Footer from '../components/Footer';
 import AccreditationsStrip from '../components/AccreditationsStrip';
 import WhyChooseUs from '../components/WhyChooseUs';
 import ResidentialFeature from '../components/ResidentialFeature';
-import ServicesGrid from '../components/ServicesGrid';
 import HowItWorks from '../components/HowItWorks';
 import CaseStudies from '../components/CaseStudies';
-import FinanceBanner from '../components/FinanceBanner';
 import FinalCTA from '../components/FinalCTA';
 
 export default function AboutSolarPage() {
@@ -36,10 +34,8 @@ export default function AboutSolarPage() {
         <AccreditationsStrip />
         <WhyChooseUs />
         <ResidentialFeature />
-        <ServicesGrid />
         <HowItWorks />
         <CaseStudies />
-        <FinanceBanner />
         <FinalCTA />
       </main>
       <Footer />
