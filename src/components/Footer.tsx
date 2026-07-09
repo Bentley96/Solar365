@@ -1,13 +1,15 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Megaphone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const support = [
-  { label: 'FAQs', href: '#' },
-  { label: 'Solar for Home', href: '#residential' },
-  { label: 'Solar for Business', href: '#services' },
-  { label: 'ECO4 Funding', href: '#services' },
-  { label: 'Why Choose Solar?', href: '#' },
-  { label: 'Complaints &amp; Feedback', href: 'mailto:customerservices@solar-365.co.uk' },
-  { label: 'Privacy Policy', href: '#' },
+const support: { label: string; to?: string; href?: string }[] = [
+  { label: 'About Solar', to: '/about-solar' },
+  { label: 'Residential Solar', to: '/residential-solar' },
+  { label: 'Commercial Solar', to: '/commercial-solar' },
+  { label: 'Air Source Heat Pumps', to: '/air-source-heat-pumps' },
+  { label: 'FAQs', to: '/faqs' },
+  { label: 'Contact Us', to: '/contact' },
+  { label: 'Complaints & Feedback', href: 'mailto:customerservices@solar-365.co.uk' },
+  { label: 'Privacy Policy', to: '/privacy-policy' },
 ];
 
 const accreds = [
@@ -107,13 +109,23 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-5">Support</h4>
             <ul className="space-y-2.5">
-              {support.map(({ label, href }) => (
+              {support.map(({ label, to, href }) => (
                 <li key={label}>
-                  <a
-                    href={href}
-                    className="text-navy-300 hover:text-solar-400 text-sm transition-colors"
-                    dangerouslySetInnerHTML={{ __html: label }}
-                  />
+                  {to ? (
+                    <Link
+                      to={to}
+                      className="text-navy-300 hover:text-solar-400 text-sm transition-colors"
+                    >
+                      {label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={href}
+                      className="text-navy-300 hover:text-solar-400 text-sm transition-colors"
+                    >
+                      {label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
