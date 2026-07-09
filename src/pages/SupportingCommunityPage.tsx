@@ -67,7 +67,7 @@ export default function SupportingCommunityPage() {
                   src="/images/SupportingOurCommunity/local-support.jpg.webp"
                   alt="Solar 365 supporting local Doncaster clubs and foundations"
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[center_35%]"
                 />
               </div>
             </div>
