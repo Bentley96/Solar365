@@ -4,15 +4,15 @@ import { useQuote } from './QuoteContext';
 const points = [
   {
     icon: BadgeCheck,
-    title: 'Cosy & Valen Models',
+    title: 'Cosy & Valiant Models',
     description:
-      'We install the full range of Cosy and Valen air source heat pump models, matched to your home for maximum efficiency and cosy warmth all year round — even on the coldest Yorkshire days.',
+      'We install the full range of Cosy and Valiant air source heat pump models, matched to your home for maximum efficiency and cosy warmth all year round — even on the coldest Yorkshire days.',
   },
   {
     icon: PoundSterling,
-    title: '£7,000 Grant — Claim Now',
+    title: '£7,500 Grant — Claim Now',
     description:
-      'Thanks to the government grant scheme, you can claim a £7,000 grant towards your air source heat pump right now — making the switch to low-carbon heating more affordable than ever.',
+      'Thanks to the government grant scheme, you can claim a £7,500 grant towards your air source heat pump right now — making the switch to low-carbon heating more affordable than ever.',
   },
 ];
 
@@ -61,7 +61,7 @@ export default function OctopusHeatPumps() {
               </button>
               <span className="inline-flex items-center gap-2 text-navy-800 text-sm font-medium">
                 <ShieldCheck className="w-4 h-4 text-solar-500" />
-                Accredited Cosy Installer · £7,000 grant available
+                Accredited Cosy Installer · £7,500 grant available
               </span>
             </div>
           </div>
