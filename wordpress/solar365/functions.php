@@ -120,10 +120,18 @@ function solar365_enqueue_app() {
 
 /**
  * Load the entry as a native ES module (Vite output requires type="module").
+ *
+ * The `?ver=` query is stripped deliberately: the entry's lazy-loaded chunks
+ * import the entry back by its plain filename (no query), so if WordPress served
+ * the entry as `main.js?ver=123` the browser would load it a SECOND time as
+ * `main.js` — two module instances, two copies of React, and hooks would fail
+ * with "dispatcher is null" on every lazy page. Vite's content hash in the
+ * filename already busts caches, so no version query is needed.
  */
 add_filter( 'script_loader_tag', 'solar365_module_script', 10, 3 );
 function solar365_module_script( $tag, $handle, $src ) {
 	if ( 'solar365-app' === $handle ) {
+		$src = remove_query_arg( 'ver', $src );
 		return '<script type="module" crossorigin src="' . esc_url( $src ) . '"></script>' . "\n";
 	}
 	return $tag;
