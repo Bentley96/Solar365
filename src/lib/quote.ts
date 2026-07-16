@@ -22,8 +22,19 @@ export interface QuoteRequest {
   message?: string;
 }
 
-export async function submitQuoteRequest(data: QuoteRequest) {
-  const res = await fetch(QUOTE_ENDPOINT, {
+const COMPLAINT_ENDPOINT =
+  (import.meta.env.VITE_COMPLAINT_ENDPOINT as string | undefined) ??
+  '/wp-json/solar365/v1/complaint';
+
+export interface ComplaintRequest {
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+}
+
+async function postForm(endpoint: string, data: unknown) {
+  const res = await fetch(endpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -38,4 +49,12 @@ export async function submitQuoteRequest(data: QuoteRequest) {
     }
     throw new Error(detail || `Submission failed (${res.status})`);
   }
+}
+
+export function submitQuoteRequest(data: QuoteRequest) {
+  return postForm(QUOTE_ENDPOINT, data);
+}
+
+export function submitComplaint(data: ComplaintRequest) {
+  return postForm(COMPLAINT_ENDPOINT, data);
 }

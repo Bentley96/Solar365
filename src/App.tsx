@@ -24,6 +24,7 @@ const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const FaqsPage = lazy(() => import('./pages/FaqsPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
+const ComplaintsPage = lazy(() => import('./pages/ComplaintsPage'));
 
 function HomePage() {
   return (
@@ -68,6 +69,7 @@ export default function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/faqs" element={<FaqsPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/complaints-feedback" element={<ComplaintsPage />} />
       </Routes>
     </Suspense>
   );

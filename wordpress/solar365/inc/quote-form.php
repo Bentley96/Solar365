@@ -75,7 +75,15 @@ function solar365_register_quote_cpt() {
 }
 
 /**
- * Register the REST route the front-end forms POST to.
+ * Where complaints & feedback submissions are emailed. Customer services rather
+ * than sales.
+ */
+function solar365_complaint_to() {
+	return 'customerservices@solar-365.co.uk';
+}
+
+/**
+ * Register the REST routes the front-end forms POST to.
  */
 add_action( 'rest_api_init', 'solar365_register_quote_route' );
 function solar365_register_quote_route() {
@@ -88,6 +96,88 @@ function solar365_register_quote_route() {
 			'permission_callback' => '__return_true', // Public form endpoint.
 		)
 	);
+	register_rest_route(
+		'solar365/v1',
+		'/complaint',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'solar365_handle_complaint',
+			'permission_callback' => '__return_true',
+		)
+	);
+}
+
+/**
+ * Handle a complaints & feedback submission: validate, store, email customer
+ * services.
+ *
+ * @param WP_REST_Request $request
+ * @return WP_REST_Response|WP_Error
+ */
+function solar365_handle_complaint( WP_REST_Request $request ) {
+	$params = $request->get_json_params();
+	if ( empty( $params ) ) {
+		$params = $request->get_params();
+	}
+
+	$name    = isset( $params['name'] ) ? sanitize_text_field( $params['name'] ) : '';
+	$phone   = isset( $params['phone'] ) ? sanitize_text_field( $params['phone'] ) : '';
+	$email   = isset( $params['email'] ) ? sanitize_email( $params['email'] ) : '';
+	$message = isset( $params['message'] ) ? sanitize_textarea_field( $params['message'] ) : '';
+
+	if ( '' === $name || ! is_email( $email ) || '' === $message ) {
+		return new WP_Error(
+			'solar365_invalid',
+			__( 'Please provide your name, a valid email address and the details of your complaint.', 'solar365' ),
+			array( 'status' => 400 )
+		);
+	}
+
+	// Store the submission (reuses the enquiries store, tagged as a complaint).
+	$post_id = wp_insert_post(
+		array(
+			'post_type'   => 'quote_request',
+			'post_status' => 'publish',
+			'post_title'  => sprintf( 'Complaint — %s', $name ),
+		),
+		true
+	);
+	if ( ! is_wp_error( $post_id ) ) {
+		update_post_meta( $post_id, 'submission_type', 'complaint' );
+		foreach ( compact( 'name', 'phone', 'email', 'message' ) as $key => $value ) {
+			update_post_meta( $post_id, $key, $value );
+		}
+	}
+
+	$rows  = solar365_quote_row( __( 'Name', 'solar365' ), $name );
+	$rows .= solar365_quote_row( __( 'Phone', 'solar365' ), $phone );
+	$rows .= solar365_quote_row( __( 'Email', 'solar365' ), $email );
+	$rows .= solar365_quote_row( __( 'Complaint', 'solar365' ), $message );
+
+	$body = '<div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:0 auto;">'
+		. '<h2 style="color:#0f172a;">' . esc_html__( 'New Complaint / Feedback', 'solar365' ) . '</h2>'
+		. '<table style="border-collapse:collapse;width:100%;background:#f8fafc;border-radius:8px;">' . $rows . '</table>'
+		. '<p style="color:#64748b;font-size:12px;margin-top:16px;">' . esc_html__( 'Sent automatically from the Solar 365 website complaints form.', 'solar365' ) . '</p>'
+		. '</div>';
+
+	$headers = array(
+		'Content-Type: text/html; charset=UTF-8',
+		sprintf( 'From: %s <%s>', solar365_quote_from_name(), solar365_quote_from_email() ),
+		sprintf( 'Reply-To: %s <%s>', $name, $email ),
+	);
+
+	$subject = sprintf( __( 'Complaint / Feedback — %s', 'solar365' ), $name );
+	$sent    = wp_mail( solar365_complaint_to(), $subject, $body, $headers );
+
+	if ( ! $sent ) {
+		return new WP_Error(
+			'solar365_mail_failed',
+			__( 'Your message was received but we could not send the notification email. Please call us if you do not hear back.', 'solar365' ),
+			array( 'status' => 502 )
+		);
+	}
+
+	return new WP_REST_Response( array( 'success' => true ), 200 );
 }
 
 /**

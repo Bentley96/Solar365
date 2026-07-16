@@ -8,7 +8,7 @@ const support: { label: string; to?: string; href?: string }[] = [
   { label: 'Air Source Heat Pumps', to: '/air-source-heat-pumps' },
   { label: 'FAQs', to: '/faqs' },
   { label: 'Contact Us', to: '/contact' },
-  { label: 'Complaints & Feedback', href: 'mailto:customerservices@solar-365.co.uk' },
+  { label: 'Complaints & Feedback', to: '/complaints-feedback' },
   { label: 'Privacy Policy', to: '/privacy-policy' },
 ];
 

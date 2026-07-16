@@ -34,6 +34,7 @@ function solar365_routes() {
 		'contact'                 => 'Contact',
 		'faqs'                    => 'FAQs',
 		'privacy-policy'          => 'Privacy Policy',
+		'complaints-feedback'     => 'Complaints & Feedback',
 	);
 }
 
