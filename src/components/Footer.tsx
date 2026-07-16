@@ -165,7 +165,17 @@ export default function Footer() {
           </p>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-navy-500 text-xs">
             <p>&copy; {new Date().getFullYear()} Solar 365 Ltd. All rights reserved.</p>
-            <p>Website designed by Solar 365</p>
+            <p>
+              Website designed by{' '}
+              <a
+                href="https://sociallinkup.co.uk/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-solar-400 transition-colors"
+              >
+                Social Link Up
+              </a>
+            </p>
           </div>
         </div>
       </div>
