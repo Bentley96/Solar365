@@ -21,4 +21,11 @@ export async function submitQuoteRequest(data: QuoteRequest) {
   if (!supabase) throw new Error('Database not configured');
   const { error } = await supabase.from('quote_requests').insert([data]);
   if (error) throw error;
+
+  // Email the submission to the sales team (sales@solar-365.co.uk, with jordan@
+  // cc'd and lewis@/lucie@ bcc'd — configured in the send-quote-email function).
+  const { error: emailError } = await supabase.functions.invoke('send-quote-email', {
+    body: data,
+  });
+  if (emailError) throw emailError;
 }
