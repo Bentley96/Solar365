@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin, Megaphone, Loader2, CheckCircle } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { submitQuoteRequest } from '../lib/supabase';
+import { submitQuoteRequest } from '../lib/quote';
 
 const installationTypes = [
   'Residential Solar',

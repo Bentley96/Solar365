@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Phone, ArrowRight, CheckCircle, Loader2 } from 'lucide-react';
-import { submitQuoteRequest } from '../lib/supabase';
+import { submitQuoteRequest } from '../lib/quote';
 
 const installationTypes = [
   'Residential Solar',
