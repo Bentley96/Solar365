@@ -7,7 +7,6 @@ const installationTypes = [
   'Commercial Solar',
   'Air Source Heat Pump',
   'Battery Storage',
-  'ECO4 Funding',
   'Residential Roofing',
   'Not Sure — Advise Me',
 ];
