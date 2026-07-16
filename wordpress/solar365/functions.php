@@ -185,6 +185,31 @@ function solar365_scaffold_pages() {
 		}
 	}
 
+	// Individual case-study pages live under /case-studies/<slug> so their deep
+	// links resolve with a 200. Created as children of the case-studies page.
+	$parent = get_page_by_path( 'case-studies' );
+	if ( $parent ) {
+		$case_studies = array(
+			'curtain-factory-outlet' => 'The Curtain Factory Outlet',
+			'ja-autos'               => 'JA Autos',
+			'farm-installation'      => 'Farm Solar Installation',
+		);
+		foreach ( $case_studies as $slug => $title ) {
+			if ( ! get_page_by_path( 'case-studies/' . $slug ) ) {
+				wp_insert_post(
+					array(
+						'post_type'   => 'page',
+						'post_status' => 'publish',
+						'post_title'  => $title,
+						'post_name'   => $slug,
+						'post_parent' => $parent->ID,
+						'post_content' => '',
+					)
+				);
+			}
+		}
+	}
+
 	if ( $home_id ) {
 		update_option( 'show_on_front', 'page' );
 		update_option( 'page_on_front', $home_id );
