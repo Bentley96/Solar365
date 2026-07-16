@@ -82,6 +82,17 @@ function solar365_entry() {
 }
 
 /**
+ * Expose the theme's real /dist/ URL to the app before it loads, so images
+ * resolve at runtime regardless of the theme folder name or install path.
+ * Printed early in <head> so it is defined before the footer module executes.
+ */
+add_action( 'wp_head', 'solar365_asset_base', 1 );
+function solar365_asset_base() {
+	$dist = get_template_directory_uri() . '/dist/';
+	echo '<script>window.__SOLAR365_DIST__=' . wp_json_encode( $dist ) . ';</script>' . "\n";
+}
+
+/**
  * Enqueue the built React app (ES module) and its CSS.
  */
 add_action( 'wp_enqueue_scripts', 'solar365_enqueue_app' );
