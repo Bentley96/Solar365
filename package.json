@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "package:theme": "vite build && cd wordpress && rm -f solar365-theme.zip && zip -r solar365-theme.zip solar365 && echo 'Created wordpress/solar365-theme.zip'",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
