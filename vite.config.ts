@@ -11,18 +11,19 @@ import react from '@vitejs/plugin-react';
 // to the theme's real /dist/ URL. Source keeps using clean "/images/..." paths
 // and dev is unaffected (the plugin only runs on build).
 function rewriteImagePaths(): Plugin {
-  // Matches a full string literal beginning with /images/, e.g. "/images/x.png".
-  const re = /(["'])\/images\/([^"'\n]*?)\1/g;
+  // Matches the opening delimiter of any string/template that starts with
+  // /images/ — a double quote, single quote, or backtick. Covers plain literals
+  // ("/images/x.png") as well as template literals with interpolation
+  // (`/images/Gallery/${file}`), which the gallery pages use. The leading "/" is
+  // dropped and the runtime base (which ends in "/") is prepended.
+  const re = /(["'`])\/images\//g;
   return {
     name: 'solar365-rewrite-image-paths',
     apply: 'build',
     enforce: 'post',
     renderChunk(code) {
       if (!code.includes('/images/')) return null;
-      const out = code.replace(
-        re,
-        (_m, q: string, rest: string) => `window.__SOLAR365_DIST__+${q}images/${rest}${q}`,
-      );
+      const out = code.replace(re, (_m, q: string) => `window.__SOLAR365_DIST__+${q}images/`);
       return out === code ? null : { code: out, map: null };
     },
   };
