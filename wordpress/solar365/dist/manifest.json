@@ -1,0 +1,175 @@
+{
+  "_CaseStudies-B64WTRed.js": {
+    "file": "assets/CaseStudies-B64WTRed.js",
+    "name": "CaseStudies",
+    "imports": [
+      "src/main.tsx",
+      "_caseStudies-wYMIalB4.js"
+    ]
+  },
+  "_caseStudies-wYMIalB4.js": {
+    "file": "assets/caseStudies-wYMIalB4.js",
+    "name": "caseStudies",
+    "imports": [
+      "src/main.tsx"
+    ]
+  },
+  "src/main.tsx": {
+    "file": "assets/main-Bn9_BCU0.js",
+    "name": "main",
+    "src": "src/main.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/pages/AboutSolarPage.tsx",
+      "src/pages/ResidentialSolarPage.tsx",
+      "src/pages/CommercialSolarPage.tsx",
+      "src/pages/AirSourceHeatPumpsPage.tsx",
+      "src/pages/SolarMaintenancePage.tsx",
+      "src/pages/ResidentialRoofingPage.tsx",
+      "src/pages/SupportingCommunityPage.tsx",
+      "src/pages/CaseStudiesPage.tsx",
+      "src/pages/CaseStudyPage.tsx",
+      "src/pages/GalleryPage.tsx",
+      "src/pages/ContactPage.tsx",
+      "src/pages/FaqsPage.tsx",
+      "src/pages/PrivacyPolicyPage.tsx",
+      "src/pages/ComplaintsPage.tsx"
+    ],
+    "css": [
+      "assets/main-DJ1b4Rhp.css"
+    ]
+  },
+  "src/pages/AboutSolarPage.tsx": {
+    "file": "assets/AboutSolarPage-sWleJ12G.js",
+    "name": "AboutSolarPage",
+    "src": "src/pages/AboutSolarPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx",
+      "_CaseStudies-B64WTRed.js",
+      "_caseStudies-wYMIalB4.js"
+    ]
+  },
+  "src/pages/AirSourceHeatPumpsPage.tsx": {
+    "file": "assets/AirSourceHeatPumpsPage-xWgsYcEa.js",
+    "name": "AirSourceHeatPumpsPage",
+    "src": "src/pages/AirSourceHeatPumpsPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx"
+    ]
+  },
+  "src/pages/CaseStudiesPage.tsx": {
+    "file": "assets/CaseStudiesPage-CZkbkhQ_.js",
+    "name": "CaseStudiesPage",
+    "src": "src/pages/CaseStudiesPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx",
+      "_CaseStudies-B64WTRed.js",
+      "_caseStudies-wYMIalB4.js"
+    ]
+  },
+  "src/pages/CaseStudyPage.tsx": {
+    "file": "assets/CaseStudyPage-BO7U_uRH.js",
+    "name": "CaseStudyPage",
+    "src": "src/pages/CaseStudyPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx",
+      "_caseStudies-wYMIalB4.js"
+    ]
+  },
+  "src/pages/CommercialSolarPage.tsx": {
+    "file": "assets/CommercialSolarPage-DrYjaHih.js",
+    "name": "CommercialSolarPage",
+    "src": "src/pages/CommercialSolarPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx",
+      "_CaseStudies-B64WTRed.js",
+      "_caseStudies-wYMIalB4.js"
+    ]
+  },
+  "src/pages/ComplaintsPage.tsx": {
+    "file": "assets/ComplaintsPage-Bx_H0R8R.js",
+    "name": "ComplaintsPage",
+    "src": "src/pages/ComplaintsPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx"
+    ]
+  },
+  "src/pages/ContactPage.tsx": {
+    "file": "assets/ContactPage-BCROmmU-.js",
+    "name": "ContactPage",
+    "src": "src/pages/ContactPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx"
+    ]
+  },
+  "src/pages/FaqsPage.tsx": {
+    "file": "assets/FaqsPage-C_SHDaPV.js",
+    "name": "FaqsPage",
+    "src": "src/pages/FaqsPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx"
+    ]
+  },
+  "src/pages/GalleryPage.tsx": {
+    "file": "assets/GalleryPage-D0LZHl4z.js",
+    "name": "GalleryPage",
+    "src": "src/pages/GalleryPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx"
+    ]
+  },
+  "src/pages/PrivacyPolicyPage.tsx": {
+    "file": "assets/PrivacyPolicyPage-B6qzbQm9.js",
+    "name": "PrivacyPolicyPage",
+    "src": "src/pages/PrivacyPolicyPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx"
+    ]
+  },
+  "src/pages/ResidentialRoofingPage.tsx": {
+    "file": "assets/ResidentialRoofingPage-DyjcXqF0.js",
+    "name": "ResidentialRoofingPage",
+    "src": "src/pages/ResidentialRoofingPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx"
+    ]
+  },
+  "src/pages/ResidentialSolarPage.tsx": {
+    "file": "assets/ResidentialSolarPage-Dy7PKqFj.js",
+    "name": "ResidentialSolarPage",
+    "src": "src/pages/ResidentialSolarPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx"
+    ]
+  },
+  "src/pages/SolarMaintenancePage.tsx": {
+    "file": "assets/SolarMaintenancePage-UiJJr6k6.js",
+    "name": "SolarMaintenancePage",
+    "src": "src/pages/SolarMaintenancePage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx"
+    ]
+  },
+  "src/pages/SupportingCommunityPage.tsx": {
+    "file": "assets/SupportingCommunityPage-C9JG0VDc.js",
+    "name": "SupportingCommunityPage",
+    "src": "src/pages/SupportingCommunityPage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx"
+    ]
+  }
+}

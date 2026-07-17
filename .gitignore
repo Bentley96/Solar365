@@ -1,5 +1,8 @@
 node_modules/
-dist/
+# Only ignore a root-level dist. The theme's built assets
+# (wordpress/solar365/dist) are committed so the theme is deployable without a
+# local build step.
+/dist/
 .env
 .env.local
 .env.*.local
