@@ -58,9 +58,20 @@ function solar365_manifest() {
 	if ( null !== $manifest ) {
 		return $manifest;
 	}
-	$path = get_template_directory() . '/dist/.vite/manifest.json';
-	$manifest = file_exists( $path ) ? json_decode( file_get_contents( $path ), true ) : array();
-	return is_array( $manifest ) ? $manifest : array();
+	$dist = get_template_directory() . '/dist/';
+	// Prefer a non-dot manifest (dot-folders like .vite are frequently dropped
+	// when zipping on Windows or extracting on some hosts); fall back to Vite's
+	// default .vite/manifest.json.
+	$paths = array( $dist . 'manifest.json', $dist . '.vite/manifest.json' );
+	$manifest = array();
+	foreach ( $paths as $path ) {
+		if ( file_exists( $path ) ) {
+			$decoded  = json_decode( file_get_contents( $path ), true );
+			$manifest = is_array( $decoded ) ? $decoded : array();
+			break;
+		}
+	}
+	return $manifest;
 }
 
 /**
@@ -94,29 +105,59 @@ function solar365_asset_base() {
 }
 
 /**
+ * Resolve the built entry JS + CSS files, relative to /dist/.
+ *
+ * Uses the Vite manifest when available, and otherwise falls back to locating
+ * the hashed entry files directly in dist/assets (main-*.js / main-*.css). The
+ * fallback keeps the site working even if the manifest didn't make it onto the
+ * server. The entry's lazy chunks load themselves at runtime, so only the entry
+ * JS and its CSS need enqueuing.
+ *
+ * @return array{ js:string, css:string[] }
+ */
+function solar365_entry_files() {
+	$entry = solar365_entry();
+	if ( $entry && ! empty( $entry['file'] ) ) {
+		return array(
+			'js'  => $entry['file'],
+			'css' => ! empty( $entry['css'] ) ? (array) $entry['css'] : array(),
+		);
+	}
+
+	// Fallback: find the hashed entry files by name in dist/assets.
+	$assets_dir = get_template_directory() . '/dist/assets/';
+	$js  = glob( $assets_dir . 'main-*.js' );
+	$css = glob( $assets_dir . 'main-*.css' );
+	if ( $js ) {
+		return array(
+			'js'  => 'assets/' . basename( $js[0] ),
+			'css' => $css ? array( 'assets/' . basename( $css[0] ) ) : array(),
+		);
+	}
+
+	return array( 'js' => '', 'css' => array() );
+}
+
+/**
  * Enqueue the built React app (ES module) and its CSS.
  */
 add_action( 'wp_enqueue_scripts', 'solar365_enqueue_app' );
 function solar365_enqueue_app() {
-	$entry = solar365_entry();
-	if ( ! $entry ) {
-		return; // Not built yet.
+	$files = solar365_entry_files();
+	if ( '' === $files['js'] ) {
+		return; // Not built / files not present.
 	}
 
 	$dist_uri = get_template_directory_uri() . '/dist/';
 	$dist_dir = get_template_directory() . '/dist/';
 
-	if ( ! empty( $entry['css'] ) ) {
-		foreach ( $entry['css'] as $i => $css ) {
-			$ver = file_exists( $dist_dir . $css ) ? filemtime( $dist_dir . $css ) : null;
-			wp_enqueue_style( 'solar365-app-' . $i, $dist_uri . $css, array(), $ver );
-		}
+	foreach ( $files['css'] as $i => $css ) {
+		$ver = file_exists( $dist_dir . $css ) ? filemtime( $dist_dir . $css ) : null;
+		wp_enqueue_style( 'solar365-app-' . $i, $dist_uri . $css, array(), $ver );
 	}
 
-	if ( ! empty( $entry['file'] ) ) {
-		$ver = file_exists( $dist_dir . $entry['file'] ) ? filemtime( $dist_dir . $entry['file'] ) : null;
-		wp_enqueue_script( 'solar365-app', $dist_uri . $entry['file'], array(), $ver, true );
-	}
+	$ver = file_exists( $dist_dir . $files['js'] ) ? filemtime( $dist_dir . $files['js'] ) : null;
+	wp_enqueue_script( 'solar365-app', $dist_uri . $files['js'], array(), $ver, true );
 }
 
 /**
@@ -152,10 +193,10 @@ function solar365_trim_frontend() {
  */
 add_action( 'admin_notices', 'solar365_build_notice' );
 function solar365_build_notice() {
-	if ( solar365_entry() ) {
+	if ( '' !== solar365_entry_files()['js'] ) {
 		return;
 	}
-	echo '<div class="notice notice-warning"><p><strong>Solar 365 theme:</strong> the front-end app has not been built. Run <code>npm run build</code> and upload the generated <code>dist</code> folder into the theme.</p></div>';
+	echo '<div class="notice notice-warning"><p><strong>Solar 365 theme:</strong> the front-end app was not found. Make sure the <code>dist</code> folder (including <code>dist/assets</code>) was uploaded into the theme.</p></div>';
 }
 
 /**

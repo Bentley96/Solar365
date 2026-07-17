@@ -45,7 +45,10 @@ export default defineConfig(({ command }) => {
     build: {
       outDir: 'wordpress/solar365/dist',
       emptyOutDir: true,
-      manifest: true,
+      // Emit the manifest at a non-dot path (dist/manifest.json). Dot-folders
+      // like .vite are often dropped when zipping on Windows / extracting on a
+      // host, which would leave functions.php unable to find the entry files.
+      manifest: 'manifest.json',
       rollupOptions: {
         // Build straight from the app entry (no index.html); functions.php
         // reads the manifest and enqueues the hashed files.
