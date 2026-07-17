@@ -33,6 +33,11 @@ function loadScript(): Promise<void> {
   return scriptPromise;
 }
 
+/** Eagerly load the reCAPTCHA script so the badge is visible on every page. */
+export function preloadRecaptcha(): void {
+  if (RECAPTCHA_SITE_KEY) void loadScript().catch(() => {});
+}
+
 /** Returns a fresh reCAPTCHA v3 token for the given action (e.g. "quote"). */
 export async function getRecaptchaToken(action: string): Promise<string> {
   if (!RECAPTCHA_SITE_KEY) return '';

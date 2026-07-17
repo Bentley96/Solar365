@@ -105,27 +105,6 @@ function solar365_asset_base() {
 }
 
 /**
- * TEMPORARY diagnostic. Prints an HTML comment showing what the theme finds on
- * disk, so a "View Source" reveals why the app is/isn't loading. Remove later.
- */
-add_action( 'wp_head', 'solar365_debug', 99 );
-function solar365_debug() {
-	$assets_dir = get_template_directory() . '/dist/assets/';
-	$js         = glob( $assets_dir . 'main-*.js' );
-	$css        = glob( $assets_dir . 'main-*.css' );
-	$files      = solar365_entry_files();
-	echo "\n<!-- solar365-debug v3"
-		. ' | theme_dir=' . esc_html( get_template_directory() )
-		. ' | dist_exists=' . ( is_dir( get_template_directory() . '/dist' ) ? 'yes' : 'NO' )
-		. ' | assets_exists=' . ( is_dir( $assets_dir ) ? 'yes' : 'NO' )
-		. ' | glob_js=' . count( (array) $js )
-		. ' | glob_css=' . count( (array) $css )
-		. ' | manifest=' . ( solar365_manifest() ? 'found' : 'missing' )
-		. ' | entry_js=' . esc_html( $files['js'] )
-		. " -->\n";
-}
-
-/**
  * Resolve the built entry JS + CSS files, relative to /dist/.
  *
  * Uses the Vite manifest when available, and otherwise falls back to locating
