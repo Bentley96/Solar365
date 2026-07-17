@@ -7,3 +7,6 @@ dist/
 npm-debug.log*
 .DS_Store
 .claude/
+
+# WordPress theme zip artifact
+wordpress/solar365-theme.zip

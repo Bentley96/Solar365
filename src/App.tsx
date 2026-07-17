@@ -19,10 +19,12 @@ const SolarMaintenancePage = lazy(() => import('./pages/SolarMaintenancePage'));
 const ResidentialRoofingPage = lazy(() => import('./pages/ResidentialRoofingPage'));
 const SupportingCommunityPage = lazy(() => import('./pages/SupportingCommunityPage'));
 const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'));
+const CaseStudyPage = lazy(() => import('./pages/CaseStudyPage'));
 const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const FaqsPage = lazy(() => import('./pages/FaqsPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
+const ComplaintsPage = lazy(() => import('./pages/ComplaintsPage'));
 
 function HomePage() {
   return (
@@ -62,10 +64,12 @@ export default function App() {
         <Route path="/residential-roofing" element={<ResidentialRoofingPage />} />
         <Route path="/supporting-our-community" element={<SupportingCommunityPage />} />
         <Route path="/case-studies" element={<CaseStudiesPage />} />
+        <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/faqs" element={<FaqsPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/complaints-feedback" element={<ComplaintsPage />} />
       </Routes>
     </Suspense>
   );
