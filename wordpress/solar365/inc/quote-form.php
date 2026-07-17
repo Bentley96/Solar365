@@ -29,15 +29,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Recipients. Change these to update who receives form submissions.
+ *
+ * ---------------------------------------------------------------------------
+ * TEMPORARY (testing): all enquiry emails are routed to jacob@sociallinkup.co.uk
+ * with no Cc/Bcc. To REVERT, restore:
+ *   to  -> sales@solar-365.co.uk
+ *   cc  -> array( 'jordan@solar-365.co.uk' )
+ *   bcc -> array( 'lewis@solar-365.co.uk', 'lucie@solar-365.co.uk' )
+ * ---------------------------------------------------------------------------
  */
 function solar365_quote_to() {
-	return 'sales@solar-365.co.uk';
+	return 'jacob@sociallinkup.co.uk';
 }
 function solar365_quote_cc() {
-	return array( 'jordan@solar-365.co.uk' );
+	return array();
 }
 function solar365_quote_bcc() {
-	return array( 'lewis@solar-365.co.uk', 'lucie@solar-365.co.uk' );
+	return array();
 }
 
 /**
@@ -79,7 +87,8 @@ function solar365_register_quote_cpt() {
  * than sales.
  */
 function solar365_complaint_to() {
-	return 'customerservices@solar-365.co.uk';
+	// TEMPORARY (testing) — revert to 'customerservices@solar-365.co.uk'.
+	return 'jacob@sociallinkup.co.uk';
 }
 
 /**
