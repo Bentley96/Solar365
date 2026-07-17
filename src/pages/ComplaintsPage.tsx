@@ -3,6 +3,7 @@ import { FileText, Loader2, CheckCircle } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FinalCTA from '../components/FinalCTA';
+import Honeypot from '../components/Honeypot';
 import { submitComplaint } from '../lib/quote';
 
 // Compliance documents shown as download buttons. Update these hrefs to point at
@@ -15,7 +16,7 @@ const documents = [
 ];
 
 export default function ComplaintsPage() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', website: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const set = (field: string) => (
@@ -31,6 +32,7 @@ export default function ComplaintsPage() {
         email: form.email,
         phone: form.phone,
         message: form.message,
+        website: form.website,
       });
       setStatus('success');
     } catch {
@@ -102,6 +104,7 @@ export default function ComplaintsPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  <Honeypot value={form.website} onChange={(v) => setForm((p) => ({ ...p, website: v }))} />
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-navy-900 mb-1">Full Name *</label>

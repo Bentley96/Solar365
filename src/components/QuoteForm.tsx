@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Phone, ArrowRight, CheckCircle, Loader2 } from 'lucide-react';
 import { submitQuoteRequest } from '../lib/quote';
+import Honeypot from './Honeypot';
 
 const installationTypes = [
   'Residential Solar',
@@ -12,7 +13,7 @@ const installationTypes = [
 ];
 
 export default function QuoteForm() {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', postcode: '', installation_type: '', message: '' });
+  const [form, setForm] = useState({ name: '', phone: '', email: '', postcode: '', installation_type: '', message: '', website: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -27,6 +28,7 @@ export default function QuoteForm() {
         postcode: form.postcode,
         installation_type: form.installation_type,
         message: form.message || undefined,
+        website: form.website,
       });
       setStatus('success');
     } catch {
@@ -58,6 +60,7 @@ export default function QuoteForm() {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          <Honeypot value={form.website} onChange={(v) => setForm((p) => ({ ...p, website: v }))} />
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-semibold text-navy-800 mb-1">Full Name *</label>

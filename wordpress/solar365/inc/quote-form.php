@@ -29,23 +29,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Recipients. Change these to update who receives form submissions.
- *
- * ---------------------------------------------------------------------------
- * TEMPORARY (testing): all enquiry emails are routed to jacob@sociallinkup.co.uk
- * with no Cc/Bcc. To REVERT, restore:
- *   to  -> sales@solar-365.co.uk
- *   cc  -> array( 'jordan@solar-365.co.uk' )
- *   bcc -> array( 'lewis@solar-365.co.uk', 'lucie@solar-365.co.uk' )
- * ---------------------------------------------------------------------------
  */
 function solar365_quote_to() {
-	return 'jacob@sociallinkup.co.uk';
+	return 'sales@solar-365.co.uk';
 }
 function solar365_quote_cc() {
-	return array();
+	return array( 'jordan@solar-365.co.uk' );
 }
 function solar365_quote_bcc() {
-	return array();
+	return array( 'lewis@solar-365.co.uk', 'lucie@solar-365.co.uk' );
 }
 
 /**
@@ -87,8 +79,69 @@ function solar365_register_quote_cpt() {
  * than sales.
  */
 function solar365_complaint_to() {
-	// TEMPORARY (testing) — revert to 'customerservices@solar-365.co.uk'.
-	return 'jacob@sociallinkup.co.uk';
+	return 'customerservices@solar-365.co.uk';
+}
+
+/**
+ * reCAPTCHA v3 secret key. Override in wp-config.php with
+ * define( 'SOLAR365_RECAPTCHA_SECRET', '...' ); to keep it out of the codebase.
+ */
+function solar365_recaptcha_secret() {
+	return defined( 'SOLAR365_RECAPTCHA_SECRET' )
+		? SOLAR365_RECAPTCHA_SECRET
+		: '6LfvT1gtAAAAAPpyTfdScaaTPR58aOnAyVoozJ6y';
+}
+
+/**
+ * Minimum reCAPTCHA v3 score to accept (0.0–1.0). 0.5 is Google's default.
+ */
+function solar365_recaptcha_min_score() {
+	return 0.5;
+}
+
+/**
+ * Anti-spam gate for the public forms: a honeypot field plus reCAPTCHA v3.
+ *
+ * @param array $params Request params.
+ * @return true|WP_Error True to proceed, or a WP_Error to reject.
+ */
+function solar365_spam_gate( $params ) {
+	// Honeypot: a hidden "website" field that real users never fill in.
+	if ( ! empty( $params['website'] ) ) {
+		return new WP_Error( 'solar365_spam', __( 'Submission rejected.', 'solar365' ), array( 'status' => 400 ) );
+	}
+
+	$secret = solar365_recaptcha_secret();
+	if ( ! $secret ) {
+		return true; // reCAPTCHA not configured — honeypot only.
+	}
+
+	$token = isset( $params['recaptcha_token'] ) ? sanitize_text_field( $params['recaptcha_token'] ) : '';
+	if ( '' === $token ) {
+		return new WP_Error( 'solar365_recaptcha', __( 'Verification failed. Please reload the page and try again.', 'solar365' ), array( 'status' => 400 ) );
+	}
+
+	$resp = wp_remote_post(
+		'https://www.google.com/recaptcha/api/siteverify',
+		array(
+			'timeout' => 10,
+			'body'    => array( 'secret' => $secret, 'response' => $token ),
+		)
+	);
+
+	// Fail open on a transport error so genuine users aren't blocked if Google
+	// is briefly unreachable; the honeypot still applies.
+	if ( is_wp_error( $resp ) ) {
+		return true;
+	}
+
+	$data  = json_decode( wp_remote_retrieve_body( $resp ), true );
+	$score = isset( $data['score'] ) ? (float) $data['score'] : 0.0;
+	if ( empty( $data['success'] ) || $score < solar365_recaptcha_min_score() ) {
+		return new WP_Error( 'solar365_recaptcha', __( 'We couldn’t verify your submission. Please try again.', 'solar365' ), array( 'status' => 400 ) );
+	}
+
+	return true;
 }
 
 /**
@@ -127,6 +180,11 @@ function solar365_handle_complaint( WP_REST_Request $request ) {
 	$params = $request->get_json_params();
 	if ( empty( $params ) ) {
 		$params = $request->get_params();
+	}
+
+	$gate = solar365_spam_gate( $params );
+	if ( is_wp_error( $gate ) ) {
+		return $gate;
 	}
 
 	$name    = isset( $params['name'] ) ? sanitize_text_field( $params['name'] ) : '';
@@ -199,6 +257,11 @@ function solar365_handle_quote( WP_REST_Request $request ) {
 	$params = $request->get_json_params();
 	if ( empty( $params ) ) {
 		$params = $request->get_params();
+	}
+
+	$gate = solar365_spam_gate( $params );
+	if ( is_wp_error( $gate ) ) {
+		return $gate;
 	}
 
 	$name              = isset( $params['name'] ) ? sanitize_text_field( $params['name'] ) : '';

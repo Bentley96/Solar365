@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin, Megaphone, Loader2, CheckCircle } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Honeypot from '../components/Honeypot';
 import { submitQuoteRequest } from '../lib/quote';
 
 const installationTypes = [
@@ -21,6 +22,7 @@ export default function ContactPage() {
     postcode: '',
     installation_type: '',
     message: '',
+    website: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
@@ -39,6 +41,7 @@ export default function ContactPage() {
         postcode: form.postcode,
         installation_type: form.installation_type,
         message: form.message || undefined,
+        website: form.website,
       });
       setStatus('success');
     } catch {
@@ -163,6 +166,7 @@ export default function ContactPage() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
+                    <Honeypot value={form.website} onChange={(v) => setForm((p) => ({ ...p, website: v }))} />
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-navy-900 mb-1">

@@ -9,6 +9,8 @@
 // development against a remote WP install, set VITE_QUOTE_ENDPOINT to the full
 // URL (e.g. https://solar-365.co.uk/wp-json/solar365/v1/quote).
 
+import { getRecaptchaToken } from './recaptcha';
+
 const QUOTE_ENDPOINT =
   (import.meta.env.VITE_QUOTE_ENDPOINT as string | undefined) ??
   '/wp-json/solar365/v1/quote';
@@ -20,6 +22,8 @@ export interface QuoteRequest {
   postcode: string;
   installation_type: string;
   message?: string;
+  /** Honeypot — must stay empty; real users never fill it. */
+  website?: string;
 }
 
 const COMPLAINT_ENDPOINT =
@@ -31,13 +35,25 @@ export interface ComplaintRequest {
   phone: string;
   email: string;
   message: string;
+  /** Honeypot — must stay empty; real users never fill it. */
+  website?: string;
 }
 
-async function postForm(endpoint: string, data: unknown) {
+async function postForm(endpoint: string, data: object, action: string) {
+  // Attach a reCAPTCHA v3 token (verified server-side). If the reCAPTCHA script
+  // is blocked/unavailable the token is empty and the server decides how to
+  // handle it.
+  let recaptcha_token = '';
+  try {
+    recaptcha_token = await getRecaptchaToken(action);
+  } catch {
+    // ignore — submit without a token
+  }
+
   const res = await fetch(endpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
+    body: JSON.stringify({ ...data, recaptcha_token }),
   });
 
   if (!res.ok) {
@@ -52,9 +68,9 @@ async function postForm(endpoint: string, data: unknown) {
 }
 
 export function submitQuoteRequest(data: QuoteRequest) {
-  return postForm(QUOTE_ENDPOINT, data);
+  return postForm(QUOTE_ENDPOINT, data, 'quote');
 }
 
 export function submitComplaint(data: ComplaintRequest) {
-  return postForm(COMPLAINT_ENDPOINT, data);
+  return postForm(COMPLAINT_ENDPOINT, data, 'complaint');
 }
