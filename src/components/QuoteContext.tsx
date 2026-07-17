@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
 
 interface QuoteContextValue {
   open: boolean;
@@ -34,6 +34,25 @@ export function QuoteProvider({ children }: { children: ReactNode }) {
       if (prev) stripHash();
       return !prev;
     });
+  }, []);
+
+  // Open the flyout in place for any "Get a Quote" link (href="#quote" or
+  // "/#quote") anywhere on the site, instead of navigating to the homepage and
+  // jumping to the top. Delegated so every current and future quote link works.
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+        return;
+      }
+      const anchor = (e.target as Element | null)?.closest('a');
+      const href = anchor?.getAttribute('href');
+      if (href === '#quote' || href === '/#quote') {
+        e.preventDefault();
+        setOpen(true);
+      }
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
   }, []);
 
   return (
